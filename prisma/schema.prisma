@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+  organisationlist  Organisationlist[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Organisationlist{
+  id String  @id @default(uuid())
+  OrgID String
+  name String
+  status String
+  user User @relation(fields: [userID],references: [id])
+  userID String
+}
+
+
+model Organisation {
+  id String  @id @default(uuid())
+  name String @unique
+  owner String
+  contacts Contacts[]
+  templates Templates[]
+
+}
+
+model Contacts{
+  id String  @id @default(uuid())
+  name String
+  companyname String
+  email String
+  number String
+  personaliseddata String
+  jobdecriction String
+  services String
+  type String
+  link String
+  website String
+  contacted Boolean
+  contacteddate DateTime
+  organisation Organisation @relation(fields: [organisationID],references: [id])
+  organisationID String
+}
+
+model Templates{
+  id String  @id @default(uuid())
+  name String
+  category String
+  intro String
+  Introduction String
+  Offer String
+  Porfolio String
+  Outro String
+  Links String
+  organisation Organisation @relation(fields: [organisationID],references: [id])
+  organisationID String
+  templatesparts Templatesparts[]
+}
+
+model Templatesparts{
+  id String  @id @default(uuid())
+  name String
+  category String
+  place String
+  text String
+  templates Templates @relation(fields: [TemplatesID],references: [id])
+  TemplatesID String
+}
+
+
+
+
+/////////////////////////////////////////////////better auth things/////////////////////////////////////////////////
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
