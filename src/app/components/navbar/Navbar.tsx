@@ -76,7 +76,7 @@ if(value === "temp"){
                   <option value="manageTemp">template</option>
                   </select></li>
               <li onClick={() => {changePage("Leads")}}>Leads</li>
-              <li>Contact</li>
+              <li onClick={() => {changePage("Contact")}}>Contact</li>
               <li onClick={() => {(signingOut())}}>Logout</li>
             </ul>
         </nav>

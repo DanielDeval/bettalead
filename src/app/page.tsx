@@ -9,6 +9,7 @@ import Homebar from "./components/homebar/Homebar";
 import Savecontact from "./components/Savecontact/Savecontact";
 import AddOrganisation from "./components/AddOrganisation/AddOrganisation";
 import AddTemplate from "./components/AddTemplate/AddTemplate";
+import Contact from "./components/Contact/Contact";
 
 
 
@@ -71,6 +72,7 @@ const changePage = (text:string) => {
       {page === "addOrg" && <AddOrganisation/>}
       {page === "temp" && <AddTemplate/>}
       {page === "Leads" && <Savecontact/>}
+      {page === "Contact" && <Contact/>}
       
 {/*/////////////////////////////////////////////////////////////////////Nav//////////////////////////////////////////////////////////*/}
     </div>
