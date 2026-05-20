@@ -5,79 +5,18 @@ import { Contacts, Organisationlist } from '@/generated/prisma/client';
 import Contact from '../Contact/Contact';
 import Contactcard from '../Contactcard/Contactcard';
 
-const Contactlist = () => {
 
-
-
-
-    const { data: session } = useSession();
-
-/*///////////////////////////////////////////////////////////////////Get Orgs/////////////////////////////////////////////////////////////////*/
-
-const [orgs, setOrgs] = useState<Organisationlist[]>([])
-
-
-
-useEffect(() => {
-  const getOrgs = async () => {
-    const goGetTheOrgs = await fetch("/api/getorgs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userID: session?.user.id })
-    })
-
-    const data = await goGetTheOrgs.json()
-    setOrgs(data)
-  }
-
-  if (session?.user?.id) {
-    getOrgs()
-  }
-}, [session?.user?.id])
-
-
-/*///////////////////////////////////////////////////////////////////Get Orgs/////////////////////////////////////////////////////////////////*/
-
-
-
-
-/*///////////////////////////////////////////////////////////////////local State/////////////////////////////////////////////////////////////*/
-
-const [localstate, setLocalstate] = useState({
-    orgID: "",
-    Contactname:"",
-})
-
-/*///////////////////////////////////////////////////////////////////local State/////////////////////////////////////////////////////////////*/
-
-/*///////////////////////////////////////////////////////////////////get Contacts/////////////////////////////////////////////////////////////*/
-
-
-const [contacts, setContacts] = useState<Contacts[]>([])
-const fastorgid = {name:''}
-
-
-const getTheContacts = async () => {
-    const GoGetTheContacts = await fetch("api",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify(fastorgid.name)
-    })
-    const data = await GoGetTheContacts.json()
-    setContacts(data)
-    
+type Contactlisttype = {
+    handleemailmode:(input:boolean)=>void
+    orgs:Organisationlist[]
+    localstate:{orgID:string,Contactname:string}
+    getTheContacts:(selected:string)=>void
+    contacts:Contacts[]
+    setorgID:(input:string)=>void
+    setContactname:(input:string)=>void
 }
 
-
-const setorgid = (value:string) =>{
-    fastorgid.name = value
-}
-
-
-/*///////////////////////////////////////////////////////////////////get Contacts/////////////////////////////////////////////////////////////*/
-
-
-
+const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname}:Contactlisttype) => {
 
 
 
@@ -86,9 +25,7 @@ const setorgid = (value:string) =>{
 
   return (
     <div>
-        <select  value={localstate.orgID} onChange={(e)=>{setLocalstate({...localstate,orgID:e.target.value});
-                                                          setorgid(e.target.value)
-                                                          getTheContacts()}}>
+        <select  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);}}>
           <option value="" disabled hidden>
                   Select Orginization
                 </option>
@@ -99,7 +36,7 @@ const setorgid = (value:string) =>{
         ))}
         </select>
         {contacts.map((contact) => (
-            <Contactcard key={contact.id} contact={contact}/>
+            <Contactcard key={contact.id} contact={contact} setorgID={setorgID} setContactname={setContactname} handleemailmode={handleemailmode}/>
         ) )}
 
     </div>
