@@ -83,7 +83,6 @@ model Templates{
 model Templatesparts{
   id String  @id @default(uuid())
   name String
-  category String
   place String
   text String
   templates Templates @relation(fields: [TemplatesID],references: [id])

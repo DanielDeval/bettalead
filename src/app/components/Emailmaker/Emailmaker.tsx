@@ -70,84 +70,210 @@ const selectthetemplate =  (input:string) => {
 const [extraparts, setExtraparts] = useState<Templatesparts[]>([])
 
 const getparts = async (input:string) => {
-  const gogetheparts = await fetch("api/getparts",{
+  const gogetheparts = await fetch("/api/getparts",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify({id:input})
   })
   const data = await gogetheparts.json()
-  setExtraparts(data)
+  setExtraparts(Array.isArray(data) ? data : [])
+   
 }
 
 
 const introparts = extraparts.filter((part)=>part.place ==="intro")
 
-const Introductionparts = extraparts.filter((part)=>part.place ==="Introduction")
+const Introductionparts = extraparts.filter((part)=>part.place ==="introduction")
 
-const Offerparts = extraparts.filter((part)=>part.place ==="Offer")
+const Offerparts = extraparts.filter((part)=>part.place ==="offer")
 
-const Porfolioparts = extraparts.filter((part)=>part.place ==="Porfolio")
+const Porfolioparts = extraparts.filter((part)=>part.place ==="porfolio")
 
-const Outroparts = extraparts.filter((part)=>part.place ==="Outro")
+const Outroparts = extraparts.filter((part)=>part.place ==="outro")
 
-const Linksparts = extraparts.filter((part)=>part.place ==="Links")
+const Linksparts = extraparts.filter((part)=>part.place ==="links")
+
+/*////////////////////////////////////////////////////////////////get template parts///////////////////////////////////////////////////*/
+
+/*////////////////////////////////////////////////////////////handle parts form////////////////////////////////////////////////////////*/
+
+/*////////handle intro parts form///////////////////*/
+ const [createintro, setCreateintro ] = useState(false)
+  const [createintroname, setCreateintroname ] = useState("")
 
 const handleintroparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, intro:selectedtemplate.intro}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, intro:input}))
   }
+  if(input === "create"){
+    setCreateintro(true)
+  }
 }
+
+const handlePartsaveintro = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createintroname, TemplatesID:selectedtemplate.id,place:"intro",text:email.intro})
+  })
+  const data = await savethepart.json()
+}
+
+
+
+/*////////handle intro parts form///////////////////*/
+
+/*////////handle Introduction parts form///////////////////*/
+ const [createintroduction, setCreateintroduction ] = useState(false)
+ const [createintroductionname, setCreateintroductionname ] = useState("")
 
 const handleIntroductionparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, Introduction:selectedtemplate.Introduction}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, Introduction:input}))
   }
+  if(input === "create"){
+    setCreateintroduction(true)
+  }
 }
+
+const handlePartsaveIntroduction = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createintroductionname, TemplatesID:selectedtemplate.id,place:"introduction",text:email.Introduction})
+  })
+  const data = await savethepart.json()
+}
+
+
+
+
+
+/*////////handle Introduction parts form///////////////////*/
+
+
+/*////////handle Offer parts form///////////////////*/
+ const [createoffer, setCreateoffer ] = useState(false)
+ const [createoffername, setCreateoffername ] = useState("")
 
 const handleOfferparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, Offer:selectedtemplate.Offer}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, Offer:input}))
   }
+  if(input === "create"){
+    setCreateoffer(true)
+  }
 }
+
+const handlePartsaveOffer = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createoffername, TemplatesID:selectedtemplate.id,place:"offer",text:email.Offer})
+  })
+  const data = await savethepart.json()
+}
+
+
+/*////////handle Offer parts form///////////////////*/
+
+/*////////handle Porfolio parts form///////////////////*/
+const [createporfolio, setCreateporfolio ] = useState(false)
+const [createporfolioname, setCreateporfolioname ] = useState("")
 
 const handlePorfolioparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, Porfolio:selectedtemplate.Porfolio}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, Porfolio:input}))
   }
+  if(input === "create"){
+    setCreateporfolio(true)
+  }
 }
+
+
+const handlePartsavePorfolio = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createporfolioname, TemplatesID:selectedtemplate.id,place:"porfolio",text:email.Porfolio})
+  })
+  const data = await savethepart.json()
+}
+
+
+
+/*////////handle Porfolio parts form///////////////////*/
+
+
+/*////////handle Outro parts form///////////////////*/
+ const [createoutro, setCreateoutro ] = useState(false)
+ const [createoutroname, setCreateoutroname ] = useState("")
 
 const handleOutroparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, Outro:selectedtemplate.Outro}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, Outro:input}))
   }
+   if(input === "create"){
+    setCreateoutro(true)
+  }
 }
+
+const handlePartsaveOutro = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createoutroname, TemplatesID:selectedtemplate.id,place:"outro",text:email.Outro})
+  })
+  const data = await savethepart.json()
+}
+
+
+/*////////handle Outro parts form///////////////////*/
+
+
+/*////////handle Links form///////////////////*/
+const [createlinks, setCreatelinks ] = useState(false)
+const [createlinksname, setCreatelinksname ] = useState("")
 
 const handleLinksparts = (input:string) => {
   if(input === ""){
     setEmail(prev => ({...prev, Links:selectedtemplate.Links}))
   }
-  if(input && input !== ""){
+  if(input && input !== "" && input !== "create"){
     setEmail(prev => ({...prev, Links:input}))
+  }
+  if(input === "create"){
+    setCreatelinks(true)
   }
 }
 
+const handlePartsaveLinks = async () =>{
+  const savethepart = await fetch("/api/savethepart",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({name:createlinksname, TemplatesID:selectedtemplate.id,place:"links",text:email.Links})
+  })
+  const data = await savethepart.json()
+}
+/*////////handle Links form///////////////////*/
+/*////////////////////////////////////////////////////////////handle parts form////////////////////////////////////////////////////////*/
 
-/*////////////////////////////////////////////////////////////////get template parts////////////////////////////////////////////////////////*/
+
 
 
 /*////////////////////////////////////////////////////////////////handle email////////////////////////////////////////////////////////*/
@@ -188,12 +314,12 @@ const handleCopyEmail = async () => {
 
 
 
-
-
   return (
     <div>
 {/*////////////////////////////////////////////////////////////////select template////////////////////////////////////////////////////////*/}
-      <select  value={selectedtemplate.id} onChange={(e)=>{selectthetemplate(e.target.value)}}>
+      <select  value={selectedtemplate.id} onChange={(e)=>{selectthetemplate(e.target.value);
+                                                          getparts(e.target.value)
+      }}>
           <option value="" disabled hidden>
                   Select Template
                 </option>
@@ -211,10 +337,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {introparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createintro &&<input placeholder='name' value={createintroname} onChange={(e)=>{setCreateintroname(e.target.value)}}></input>}
+{createintro && <button onClick={()=>{handlePartsaveintro()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////into template////////////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Introduction template////////////////////////////////////////////////*/}
 <textarea value={email.Introduction}  onChange={(e) => {setEmail(prev => ({...prev,Introduction:e.target.value}))}}></textarea>
@@ -222,10 +349,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {Introductionparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createintroduction &&<input placeholder='name' value={createintroductionname}  onChange={(e)=>{setCreateintroductionname(e.target.value)}}></input>}
+{createintroduction && <button  onClick={()=>{handlePartsaveIntroduction()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Introduction template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Offer template////////////////////////////////////////////////*/}
 <textarea value={email.Offer}  onChange={(e) => {setEmail(prev => ({...prev,Offer:e.target.value}))}}></textarea>
@@ -233,10 +361,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {Offerparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createoffer &&<input placeholder='name' value={createoffername} onChange={(e)=>{setCreateoffername(e.target.value)}}></input>}
+{createoffer && <button  onClick={()=>{handlePartsaveOffer()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Offer template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Porfolio template////////////////////////////////////////////////*/}
 <textarea value={email.Porfolio}  onChange={(e) => {setEmail(prev => ({...prev,Porfolio:e.target.value}))}}></textarea>
@@ -244,10 +373,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {Porfolioparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createporfolio &&<input placeholder='name' value={createporfolioname} onChange={(e)=>{setCreateporfolioname(e.target.value)}}></input>}
+{createporfolio && <button  onClick={()=>{handlePartsavePorfolio()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Porfolio template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Outro template////////////////////////////////////////////////*/}
 <textarea value={email.Outro}  onChange={(e) => {setEmail(prev => ({...prev,Outro:e.target.value}))}}></textarea>
@@ -255,10 +385,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {Outroparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createoutro &&<input placeholder='name' value={createoutroname} onChange={(e)=>{setCreateoutroname(e.target.value)}}></input>}
+{createoutro && <button  onClick={()=>{handlePartsaveOutro()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Outro template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
 <textarea value={email.Links}  onChange={(e) => {setEmail(prev => ({...prev,Links:e.target.value}))}}></textarea>
@@ -266,10 +397,11 @@ const handleCopyEmail = async () => {
   <option value="" disabled hidden>
                   Default
   </option>
+  <option value="create">Create</option>
   {Linksparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-<input placeholder='name'></input>
-<button>save part</button>
+{createlinks &&<input placeholder='name' value={createlinksname} onChange={(e)=>{setCreatelinksname(e.target.value)}}></input>}
+{createlinks && <button  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
 <button onClick={() => handleCopyEmail()}>copy email</button>
     </div>

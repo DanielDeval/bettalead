@@ -69,7 +69,7 @@ const CatagoryValue = {Value:""}
 
 
 const getCategory = async () =>{
-  const getTheCategory = await fetch("api/getCategory",{
+  const getTheCategory = await fetch("/api/getCategory",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify({organisationID:CatagoryValue.Value})
@@ -89,7 +89,7 @@ const getCategory = async () =>{
 const [namenew, setMakenew] = useState(false)
 
 const MakeTemplate = async () => {
-  const MakeTheTemplate = await fetch("api/makeTemplate",{
+  const MakeTheTemplate = await fetch("/api/makeTemplate",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify({
