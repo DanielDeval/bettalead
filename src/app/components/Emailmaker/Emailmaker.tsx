@@ -1,6 +1,7 @@
 "use client"
 import { Organisationlist, Templates, Templatesparts } from '@/generated/prisma/client'
 import React, { useEffect, useState } from 'react'
+import { text } from 'stream/consumers'
 
 type Emailmakertype = {
     handleemailmode:(input:boolean)=>void
@@ -289,8 +290,11 @@ const [email, setEmail] = useState({
 
 
 const handleCopyEmail = async () => {
+  const convertIntro = (input:string) => {
+    return input.replace(/{Company-Name}/g, localstate.Contactname)
+  }
   const sections = [
-    email.intro,
+    convertIntro(email.intro),
     email.Introduction,
     email.Offer,
     email.Porfolio,
