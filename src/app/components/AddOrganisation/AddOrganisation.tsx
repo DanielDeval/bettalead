@@ -2,6 +2,7 @@
 import { useSession } from '@/lib/auth-client';
 import { error } from 'console';
 import React, { useState } from 'react'
+import "@/styles/AddOrganisation/AddOrganisation.css"
 
 
 
@@ -45,7 +46,7 @@ if(Form.ok){
 
 
   return (
-    <div><div>
+    <div className='AddOrganisationWrapper'><div className='AddOrganisation'>
         <input type='text' placeholder='Organisation' onChange={(e)=>{setFormdata(e.target.value)}}></input>
         <button onClick={()=>{submitForm()}}>Submit</button>
         <p>{errormessage}</p>

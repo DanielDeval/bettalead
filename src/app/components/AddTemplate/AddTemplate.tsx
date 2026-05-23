@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import {useSession} from "@/lib/auth-client"
 import { Organisationlist, Templates } from '@/generated/prisma/client';
+import "@/styles//AddTemplate/AddTemplate.css"
 
 const AddTemplate = () => {
 
@@ -114,7 +115,7 @@ const MakeTemplate = async () => {
 
 
   return (
-    <div>
+    <div className='AddTemplateWrapper'><div className='AddTemplate'>
         <input required value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name:e.target.value})}}></input>
         <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});
                                                               CatagoryValue.Value = e.target.value;
@@ -149,7 +150,7 @@ const MakeTemplate = async () => {
         <textarea required placeholder='Outro' value={formdata.Outro} onChange={(e)=>{setFormdata({...formdata,Outro:e.target.value})}}>Outro</textarea>
         <textarea required placeholder='Links' value={formdata.Links} onChange={(e)=>{setFormdata({...formdata,Links:e.target.value})}}>Links</textarea>
         <button onClick={()=>{MakeTemplate()}}>make Template</button>
-    </div>
+    </div></div>
   )
 }
 

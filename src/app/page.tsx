@@ -10,6 +10,9 @@ import Savecontact from "./components/Savecontact/Savecontact";
 import AddOrganisation from "./components/AddOrganisation/AddOrganisation";
 import AddTemplate from "./components/AddTemplate/AddTemplate";
 import Contact from "./components/Contact/Contact";
+import Loadingscreen from "./components/Loadingscreen/Loadingscreen";
+import HomePage from "./components/HomePage/HomePage";
+import "@/styles/Homepage/Homepage.css"
 
 
 
@@ -63,16 +66,18 @@ const changePage = (text:string) => {
 
 
   return (
-    <div>
+    <div className="HomepageBackround">
 {/*/////////////////////////////////////////////////////////////////////Nav//////////////////////////////////////////////////////////*/}
       {session && !isPending && <Navbar  signingOut={signingOut} changePage={changePage}/>}
       {!session && !isPending && <Homebar  startSignin={startSignin}  startSignup={startSignup}/>}
+      {isPending && <Loadingscreen/>}
       {signup && <Signup SigninAndSignupBack={SigninAndSignupBack}/>}
       {signin && <Signin SigninAndSignupBack={SigninAndSignupBack}/>}
       {page === "addOrg" && <AddOrganisation/>}
       {page === "temp" && <AddTemplate/>}
       {page === "Leads" && <Savecontact/>}
       {page === "Contact" && <Contact/>}
+      {page === "home" && <HomePage/>}
       
 {/*/////////////////////////////////////////////////////////////////////Nav//////////////////////////////////////////////////////////*/}
     </div>
