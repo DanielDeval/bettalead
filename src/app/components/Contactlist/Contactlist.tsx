@@ -4,6 +4,7 @@ import {useSession} from "@/lib/auth-client"
 import { Contacts, Organisationlist } from '@/generated/prisma/client';
 import Contact from '../Contact/Contact';
 import Contactcard from '../Contactcard/Contactcard';
+import "@/styles/Contactlist/Contactlist.css"
 
 
 type Contactlisttype = {
@@ -14,9 +15,10 @@ type Contactlisttype = {
     contacts:Contacts[]
     setorgID:(input:string)=>void
     setContactname:(input:string)=>void
+    setContactemail:(input:string)=>void
 }
 
-const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname}:Contactlisttype) => {
+const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail}:Contactlisttype) => {
 
 
 
@@ -24,7 +26,7 @@ const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,se
 
 
   return (
-    <div>
+    <div className='ContactlistWrapper'><div className='Contactlist'>
         <select  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);}}>
           <option value="" disabled hidden>
                   Select Orginization
@@ -36,10 +38,15 @@ const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,se
         ))}
         </select>
         {contacts.map((contact) => (
-            <Contactcard key={contact.id} contact={contact} setorgID={setorgID} setContactname={setContactname} handleemailmode={handleemailmode}/>
+            <Contactcard key={contact.id}
+            contact={contact}
+            setorgID={setorgID}
+            setContactname={setContactname}
+            handleemailmode={handleemailmode}
+            setContactemail={setContactemail}/>
         ) )}
 
-    </div>
+    </div></div>
   )
 }
 

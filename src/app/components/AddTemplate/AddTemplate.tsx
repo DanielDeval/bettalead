@@ -116,7 +116,7 @@ const MakeTemplate = async () => {
 
   return (
     <div className='AddTemplateWrapper'><div className='AddTemplate'>
-        <input required value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name:e.target.value})}}></input>
+        <input placeholder='name' required value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name:e.target.value})}}></input>
         <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});
                                                               CatagoryValue.Value = e.target.value;
                                                                getCategory() }}>

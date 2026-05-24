@@ -9,10 +9,11 @@ type Contacttype = {
     setorgID:(input:string)=>void
     setContactname:(input:string)=>void
     handleemailmode:(input:boolean)=>void
+    setContactemail:(input:string)=>void
 }
 
 
-const Contactcard = ({contact,setorgID,setContactname,handleemailmode}:Contacttype) => {
+const Contactcard = ({contact,setorgID,setContactname,handleemailmode,setContactemail}:Contacttype) => {
 
 
 /*///////////////////////////////////////////////////////////////////expand control/////////////////////////////////////////////////////////////*/
@@ -32,6 +33,7 @@ const handlelocalstate = () => {
 const handleContact = () => {
 setorgID(contact.organisationID)
 setContactname(contact.name)
+setContactemail(contact.email)
 }
 
 

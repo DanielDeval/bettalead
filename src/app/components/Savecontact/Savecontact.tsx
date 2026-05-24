@@ -2,6 +2,7 @@
 import { Organisationlist } from '@/generated/prisma/client'
 import { useSession } from '@/lib/auth-client';
 import React, { useEffect, useState } from 'react'
+import "@/styles/Savecontact/Savecontact.css"
 
 
 const Savecontact = () => {
@@ -74,7 +75,7 @@ const saveContect = async () => {
 
 
   return (
-    <div>
+    <div className='SavecontactWrapper'><div  className='Savecontact'>
         <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});}}>
           <option value="" disabled hidden>
                   Select Orginization
@@ -85,18 +86,18 @@ const saveContect = async () => {
           </option>
         ))}
         </select>
-        <input type='text' value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name: e.target.value})}}/>name
-        <input type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>companyname
-        <input type='text'value={formdata.email} onChange={(e)=>{setFormdata({...formdata,email: e.target.value})}}/>email
-        <input type='text'value={formdata.number} onChange={(e)=>{setFormdata({...formdata,number: e.target.value})}}/>number
-        <input type='text'value={formdata.personaliseddata} onChange={(e)=>{setFormdata({...formdata,personaliseddata: e.target.value})}}/>personaliseddata
-        <input type='text'value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>jobdecriction
-        <input type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>services
-        <input type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>type
-        <input type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>link
-        <input type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>website
+        <input placeholder='name' type='text' value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name: e.target.value})}}/>
+        <input placeholder='companyname' type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>
+        <input placeholder='email' type='text'value={formdata.email} onChange={(e)=>{setFormdata({...formdata,email: e.target.value})}}/>
+        <input placeholder='number' type='text'value={formdata.number} onChange={(e)=>{setFormdata({...formdata,number: e.target.value})}}/>
+        <textarea placeholder='personaliseddata' value={formdata.personaliseddata} onChange={(e)=>{setFormdata({...formdata,personaliseddata: e.target.value})}}/>
+        <textarea placeholder='jobdecriction' value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>
+        <input placeholder='services' type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>
+        <input placeholder='type' type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>
+        <input placeholder='link' type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>
+        <input placeholder='website' type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>
         <button onClick={()=>{saveContect()}}>Save</button>
-    </div>
+    </div></div>
   )
 }
 

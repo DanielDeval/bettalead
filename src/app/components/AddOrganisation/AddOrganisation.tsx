@@ -47,8 +47,8 @@ if(Form.ok){
 
   return (
     <div className='AddOrganisationWrapper'><div className='AddOrganisation'>
-        <input type='text' placeholder='Organisation' onChange={(e)=>{setFormdata(e.target.value)}}></input>
-        <button onClick={()=>{submitForm()}}>Submit</button>
+        <input className='AddOrganisationinput' type='text' placeholder='Organisation' onChange={(e)=>{setFormdata(e.target.value)}}></input>
+        <button  className='AddOrganisationbutton' onClick={()=>{submitForm()}}>Submit</button>
         <p>{errormessage}</p>
     </div></div>
   )

@@ -2,10 +2,12 @@
 import { Organisationlist, Templates, Templatesparts } from '@/generated/prisma/client'
 import React, { useEffect, useState } from 'react'
 import { text } from 'stream/consumers'
+import "@/styles/Emailmaker/Emailmaker.css"
 
 type Emailmakertype = {
     handleemailmode:(input:boolean)=>void
     localstate:{orgID:string,Contactname:string}
+    
 }
 
 const Emailmaker = ({handleemailmode,localstate}:Emailmakertype) => {
@@ -319,7 +321,7 @@ const handleCopyEmail = async () => {
 
 
   return (
-    <div>
+    <div  className='EmailmakerWrapper'><div className='Emailmaker'>
 {/*////////////////////////////////////////////////////////////////select template////////////////////////////////////////////////////////*/}
       <select  value={selectedtemplate.id} onChange={(e)=>{selectthetemplate(e.target.value);
                                                           getparts(e.target.value)
@@ -408,7 +410,7 @@ const handleCopyEmail = async () => {
 {createlinks && <button  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
 <button onClick={() => handleCopyEmail()}>copy email</button>
-    </div>
+    </div></div>
   )
 }
 

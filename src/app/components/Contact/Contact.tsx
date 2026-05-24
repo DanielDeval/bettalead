@@ -46,6 +46,7 @@ useEffect(() => {
 const [localstate, setLocalstate] = useState({
     orgID: "",
     Contactname:"",
+    email:"",
 })
 
 const setorgID = (input:string) => {
@@ -55,6 +56,11 @@ setLocalstate(prev => ({ ...prev, orgID: input }))
 const setContactname = (input:string) => {
 setLocalstate(prev => ({ ...prev, Contactname: input }))
 }
+
+const setContactemail = (input:string) => {
+setLocalstate(prev => ({ ...prev, email: input }))
+}
+
 
 /*///////////////////////////////////////////////////////////////////local State/////////////////////////////////////////////////////////////*/
 
@@ -93,15 +99,16 @@ const handleemailmode = (input:boolean) => {
 
 
   return (
-    <div>
+    <div className='ContactWrapper' ><div className='Contact'>
         {!emailmode && <Contactlist handleemailmode={handleemailmode}
                                      orgs={orgs} localstate={localstate}
                                      getTheContacts={getTheContacts}
                                      contacts={contacts} setorgID={setorgID}
-                                     setContactname={setContactname}/>}
-        {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate}/>}
+                                     setContactname={setContactname}
+                                     setContactemail={setContactemail}/>}
+        {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate} />}
         
-    </div>
+    </div></div>
   )
 }
 
