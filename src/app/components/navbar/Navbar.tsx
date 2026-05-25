@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import "@/styles/navbar/navbar.css"
 
  type Navbarprops = {
   signingOut: () => void
@@ -59,7 +60,7 @@ if(value === "temp"){
         <nav className='flex gap-10'>
           <img src="/betaleadlogo3.png" alt="logo" width={100}/>
             <ul className='flex gap-10 '>
-              <li><select   value={createV} 
+              <li><select   value={createV} className='Navbarselect' 
               onChange={(e)=>{handleCreateNav(e.target.value)}}>
                 <option value="" disabled hidden>
                   Create
@@ -67,7 +68,7 @@ if(value === "temp"){
                 <option value={"addOrg"}>orginasation</option>
                 <option value={"temp"}>template</option>
                 </select></li>
-                <li><select value={manageV}  onChange={(e)=>{handleManageNav(e.target.value)}}>
+                <li><select value={manageV} className='Navbarselect'  onChange={(e)=>{handleManageNav(e.target.value)}}>
                   <option value="" disabled hidden
                   >
                     Manage
@@ -75,9 +76,9 @@ if(value === "temp"){
                   <option value="manageOrg">orginasation</option>
                   <option value="manageTemp">template</option>
                   </select></li>
-              <li onClick={() => {changePage("Leads")}}>Leads</li>
-              <li onClick={() => {changePage("Contact")}}>Contact</li>
-              <li onClick={() => {(signingOut())}}>Logout</li>
+              <li><button  className='Navbarbutton' onClick={() => {changePage("Leads")}}>Leads</button></li>
+              <li><button  className='Navbarbutton' onClick={() => {changePage("Contact")}}>Contact</button></li>
+              <li><button  className='Navbarbutton'  onClick={() => {(signingOut())}}>Logout</button></li>
             </ul>
         </nav>
     </div>

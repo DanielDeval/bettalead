@@ -409,7 +409,10 @@ const handleCopyEmail = async () => {
 {createlinks &&<input placeholder='name' value={createlinksname} onChange={(e)=>{setCreatelinksname(e.target.value)}}></input>}
 {createlinks && <button  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
+<button onClick={() => handleCopyEmail()}>copy address</button>
+<button onClick={() => handleCopyEmail()}>subject</button>
 <button onClick={() => handleCopyEmail()}>copy email</button>
+<button onClick={() => handleCopyEmail()}>save as contacted</button>
     </div></div>
   )
 }
