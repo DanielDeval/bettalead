@@ -6,7 +6,8 @@ import "@/styles/Emailmaker/Emailmaker.css"
 
 type Emailmakertype = {
     handleemailmode:(input:boolean)=>void
-    localstate:{orgID:string,Contactname:string}
+    localstate:{orgID:string,Contactname:string, email:string,companyID:string}
+    
     
 }
 
@@ -291,7 +292,7 @@ const [email, setEmail] = useState({
 })
 
 
-const handleCopyEmail = async () => {
+const handleCopyEmail =  () => {
   const convertIntro = (input:string) => {
     return input.replace(/{Company-Name}/g, localstate.Contactname)
   }
@@ -306,7 +307,24 @@ const handleCopyEmail = async () => {
 
   const formattedEmail = sections.join("\n\n")
 
-  await navigator.clipboard.writeText(formattedEmail)
+
+  return formattedEmail
+}
+
+
+const openGmailCompose = async () => {
+  const body =  handleCopyEmail()
+  const url =
+    `https://mail.google.com/mail/?view=cm&fs=1` +
+    `&to=${encodeURIComponent(localstate.email)}` +
+    `&su=${encodeURIComponent("Hello")}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  window.open(
+    url,
+    "gmailCompose",
+    "width=900,height=700,resizable=yes,scrollbars=yes"
+  );
 }
 
 
@@ -315,6 +333,23 @@ const handleCopyEmail = async () => {
 
 
 
+/*////////////////////////////////////////////////////////////////handle contacted////////////////////////////////////////////////////*/
+
+
+const setAsSaved = async () => {
+  const setContactAsSaved = await fetch("/api/setContactAsSaved",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({orgID:localstate.companyID})
+  })
+  const data = await setContactAsSaved.json()
+  if(setContactAsSaved.ok){
+    handleemailmode(false)
+  }
+}
+
+
+/*////////////////////////////////////////////////////////////////handle contacted////////////////////////////////////////////////////////*/
 
 
 
@@ -409,10 +444,9 @@ const handleCopyEmail = async () => {
 {createlinks &&<input placeholder='name' value={createlinksname} onChange={(e)=>{setCreatelinksname(e.target.value)}}></input>}
 {createlinks && <button  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
-<button onClick={() => handleCopyEmail()}>copy address</button>
-<button onClick={() => handleCopyEmail()}>subject</button>
-<button onClick={() => handleCopyEmail()}>copy email</button>
-<button onClick={() => handleCopyEmail()}>save as contacted</button>
+<button onClick={() => openGmailCompose()}>Compose Email</button>
+<button onClick={() => setAsSaved()}>save as contacted</button>
+
     </div></div>
   )
 }

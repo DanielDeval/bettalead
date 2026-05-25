@@ -47,6 +47,7 @@ const [localstate, setLocalstate] = useState({
     orgID: "",
     Contactname:"",
     email:"",
+    companyID:""
 })
 
 const setorgID = (input:string) => {
@@ -59,6 +60,10 @@ setLocalstate(prev => ({ ...prev, Contactname: input }))
 
 const setContactemail = (input:string) => {
 setLocalstate(prev => ({ ...prev, email: input }))
+}
+
+const setContactcompanyID = (input:string) => {
+setLocalstate(prev => ({ ...prev, companyID: input }))
 }
 
 
@@ -105,7 +110,8 @@ const handleemailmode = (input:boolean) => {
                                      getTheContacts={getTheContacts}
                                      contacts={contacts} setorgID={setorgID}
                                      setContactname={setContactname}
-                                     setContactemail={setContactemail}/>}
+                                     setContactemail={setContactemail}
+                                     setContactcompanyID={setContactcompanyID}/>}
         {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate} />}
         
     </div></div>

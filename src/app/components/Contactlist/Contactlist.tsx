@@ -10,15 +10,16 @@ import "@/styles/Contactlist/Contactlist.css"
 type Contactlisttype = {
     handleemailmode:(input:boolean)=>void
     orgs:Organisationlist[]
-    localstate:{orgID:string,Contactname:string}
+    localstate:{orgID:string,Contactname:string,companyID:string}
     getTheContacts:(selected:string)=>void
     contacts:Contacts[]
     setorgID:(input:string)=>void
     setContactname:(input:string)=>void
     setContactemail:(input:string)=>void
+    setContactcompanyID:(input:string)=>void
 }
 
-const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail}:Contactlisttype) => {
+const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail,setContactcompanyID}:Contactlisttype) => {
 
 
 
@@ -43,7 +44,8 @@ const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,se
             setorgID={setorgID}
             setContactname={setContactname}
             handleemailmode={handleemailmode}
-            setContactemail={setContactemail}/>
+            setContactemail={setContactemail}
+            setContactcompanyID={setContactcompanyID}/>
         ) )}
 
     </div></div>
