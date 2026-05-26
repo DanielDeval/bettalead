@@ -46,11 +46,30 @@ setContactcompanyID(contact.id)
 
   return (
     <div>
+      {localstate && <div>
+        <h1>{contact.name}</h1>
+        <p>{contact.number}</p>
+        <p>{contact.email}</p>
+        <p>{contact.personaliseddata}</p>
+        <p>{contact.jobdecriction}</p>
+        <p>{contact.services}</p>
+        <p>{contact.type}</p>
+        <p>{contact.link}</p>
+        <p>{contact.website}</p>
+        <button onClick={() => handlelocalstate()}>expand</button>
+        <button onClick={() => {handleContact();
+                          handleemailmode(true)
+        }}>contact</button>
+    </div>}
+    {!localstate && <div>
         <h1>{contact.name}</h1>
         <button onClick={() => handlelocalstate()}>expand</button>
         <button onClick={() => {handleContact();
                           handleemailmode(true)
         }}>contact</button>
+    </div>}
+    
+    
     </div>
   )
 }
