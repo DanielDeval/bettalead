@@ -71,6 +71,21 @@ const saveContect = async () => {
     })
   })
   const savedContact = await savingContact.json()
+  if(savingContact.ok){
+    setFormdata((prev)=>({...prev,
+                         name:"",
+                        companyname:"",
+                        email:"",
+                        number:"",
+                        personaliseddata:"",
+                        jobdecriction:"",
+                        services:"",
+                        type:"",
+                        link:"",
+                        website:"", 
+  }))
+  }
+  
 }
 
 

@@ -88,6 +88,12 @@ const getTheContacts = async (selected:string) => {
     
 }
 
+const removeContact = (id:string) => {
+    setContacts(prev =>
+        prev.filter(contact => contact.id !== id)
+    )
+}
+
 
 
 /*///////////////////////////////////////////////////////////////////get Contacts/////////////////////////////////////////////////////////////*/
@@ -112,7 +118,7 @@ const handleemailmode = (input:boolean) => {
                                      setContactname={setContactname}
                                      setContactemail={setContactemail}
                                      setContactcompanyID={setContactcompanyID}/>}
-        {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate} />}
+        {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate} removeContact={removeContact} />}
         
     </div></div>
   )

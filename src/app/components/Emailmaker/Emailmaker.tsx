@@ -7,11 +7,12 @@ import "@/styles/Emailmaker/Emailmaker.css"
 type Emailmakertype = {
     handleemailmode:(input:boolean)=>void
     localstate:{orgID:string,Contactname:string, email:string,companyID:string}
+    removeContact:(id:string)=>void
     
     
 }
 
-const Emailmaker = ({handleemailmode,localstate}:Emailmakertype) => {
+const Emailmaker = ({handleemailmode,localstate,removeContact}:Emailmakertype) => {
 
 
 
@@ -124,6 +125,9 @@ const handlePartsaveintro = async () =>{
     body: JSON.stringify({name:createintroname, TemplatesID:selectedtemplate.id,place:"intro",text:email.intro})
   })
   const data = await savethepart.json()
+  if(savethepart.ok){
+    setCreateintro(false)
+  }
 }
 
 
@@ -153,6 +157,9 @@ const handlePartsaveIntroduction = async () =>{
     body: JSON.stringify({name:createintroductionname, TemplatesID:selectedtemplate.id,place:"introduction",text:email.Introduction})
   })
   const data = await savethepart.json()
+  if(savethepart.ok){
+    setCreateintroduction(false)
+  }
 }
 
 
@@ -185,6 +192,9 @@ const handlePartsaveOffer = async () =>{
     body: JSON.stringify({name:createoffername, TemplatesID:selectedtemplate.id,place:"offer",text:email.Offer})
   })
   const data = await savethepart.json()
+  if(savethepart.ok){
+    setCreateoffer(false)
+  }
 }
 
 
@@ -214,6 +224,9 @@ const handlePartsavePorfolio = async () =>{
     body: JSON.stringify({name:createporfolioname, TemplatesID:selectedtemplate.id,place:"porfolio",text:email.Porfolio})
   })
   const data = await savethepart.json()
+  if(savethepart.ok){
+    setCreateporfolio(false)
+  }
 }
 
 
@@ -244,6 +257,9 @@ const handlePartsaveOutro = async () =>{
     body: JSON.stringify({name:createoutroname, TemplatesID:selectedtemplate.id,place:"outro",text:email.Outro})
   })
   const data = await savethepart.json()
+  if(savethepart){
+    setCreateoutro(false)
+  }
 }
 
 
@@ -273,6 +289,9 @@ const handlePartsaveLinks = async () =>{
     body: JSON.stringify({name:createlinksname, TemplatesID:selectedtemplate.id,place:"links",text:email.Links})
   })
   const data = await savethepart.json()
+  if(savethepart){
+    setCreatelinks(false)
+  }
 }
 /*////////handle Links form///////////////////*/
 /*////////////////////////////////////////////////////////////handle parts form////////////////////////////////////////////////////////*/
@@ -345,6 +364,7 @@ const setAsSaved = async () => {
   const data = await setContactAsSaved.json()
   if(setContactAsSaved.ok){
     handleemailmode(false)
+    removeContact(localstate.companyID)
   }
 }
 

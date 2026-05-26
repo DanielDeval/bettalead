@@ -1,4 +1,5 @@
 import { Prisma } from "@/generated/prisma/client"
+import { encrypt } from "@/lib/encryption"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
@@ -8,8 +9,12 @@ import { NextResponse } from "next/server"
 export const POST = async (req:Request) => {
     try {
     const {formData , userID,orgID} = await req.json()
+    const EncryptedformData = encrypt(formData)
+    const EncryptedformorgID = encrypt(orgID)
+    const Encryptedstatus = encrypt("owner")
+
     const addToList = await prisma.organisationlist.create({
-        data:{name:formData,status:"owner",userID:userID, OrgID:orgID}
+        data:{name:EncryptedformData,status:Encryptedstatus,userID:userID, OrgID:EncryptedformorgID}
     })
      return NextResponse.json(addToList,{status:200})
      }catch(error){

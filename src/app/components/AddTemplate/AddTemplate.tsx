@@ -106,6 +106,20 @@ const MakeTemplate = async () => {
                             })
     })
     const data = await MakeTheTemplate.json()
+    if(MakeTheTemplate.ok){
+      setFormdata((prev)=>({...prev,
+                            name: "",
+                            category:"",
+                            intro:"",
+                            Introduction:"",
+                            Offer:"",
+                            Porfolio:"",
+                            Outro:"",
+                            Links:"",
+                            text:"",
+         
+      }))
+    }
     
 } 
 

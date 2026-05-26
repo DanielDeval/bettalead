@@ -36,6 +36,7 @@ if(Form.ok){
   const makeorg2 = await lastlocalorg.json()
     if(lastlocalorg.ok){
       setErrormessage("it worked")
+      setFormdata("")
     }
 
   }}catch(error){
@@ -47,7 +48,7 @@ if(Form.ok){
 
   return (
     <div className='AddOrganisationWrapper'><div className='AddOrganisation'>
-        <input className='AddOrganisationinput' type='text' placeholder='Organisation' onChange={(e)=>{setFormdata(e.target.value)}}></input>
+        <input value={formData} className='AddOrganisationinput' type='text' placeholder='Organisation' onChange={(e)=>{setFormdata(e.target.value)}}></input>
         <button  className='AddOrganisationbutton' onClick={()=>{submitForm()}}>Submit</button>
         <p>{errormessage}</p>
     </div></div>

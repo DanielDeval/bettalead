@@ -1,3 +1,4 @@
+import { decrypt } from "@/lib/encryption"
 import prisma from "@/lib/prisma"
 import { NextResponse } from "next/server"
 
@@ -10,6 +11,11 @@ export const POST = async (req:Request) => {
     const getOrgs = await prisma.organisationlist.findMany({
         where:{userID:userID}
     })
+    for (const Org of getOrgs){
+            Org.OrgID = decrypt(Org.OrgID);
+            Org.name = decrypt(Org.name);
+            Org.status = decrypt(Org.status);
+        }
     return NextResponse.json(getOrgs, {status:200})
     }catch(error){
     console.error(error)
