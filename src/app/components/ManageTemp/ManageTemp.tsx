@@ -526,7 +526,36 @@ const handlelinksedit = async () =>{
 
 /*////////////////////////////////////////////////////////////////handle template parts///////////////////////////////////////////////////*/
 
+/*////////////////////////////////////////////////////////////////handle template ///////////////////////////////////////////////////*/
 
+
+const handletemplatedelete = async () => {
+ const deleteTheTemplate = await fetch("/api/deleteTheTemplate",{
+  method:"POST",
+  headers:{"Content-type":"application/json"},
+  body: JSON.stringify({id:localstate.tempID})
+ })
+ const data = await deleteTheTemplate.json()
+}
+
+const handletemplateedit = async () => {
+ const editTheTemplate = await fetch("/api/editTheTemplate",{
+  method:"POST",
+  headers:{"Content-type":"application/json"},
+  body: JSON.stringify({id:localstate.tempID,
+                        name:Formdata.name,
+                        intro:Formdata.intro,
+                        introduction:Formdata.Introduction,
+                        offer:Formdata.Offer,
+                        portfolio:Formdata.Porfolio,
+                        outro:Formdata.Outro,
+                        links:Formdata.Links,
+  })
+ })
+ const data = await editTheTemplate.json()
+}
+
+/*////////////////////////////////////////////////////////////////handle template ///////////////////////////////////////////////////*/
 
 
     
@@ -664,7 +693,7 @@ const handlelinksedit = async () =>{
           <option value={"edit"}>Edit part</option>
           <option value={"delete"}>Delete part</option>
         </select>
-        {localporfoliostate && 
+        {localoutrostate && 
         <select value={outrodrop2} onChange={(e)=>{setOutrodrop2(e.target.value);handledropdown2outro(e.target.value)}}>
           <option value="" disabled hidden>
                   Select Part
@@ -702,6 +731,8 @@ const handlelinksedit = async () =>{
         {linksdrop2 && linksdrop1 === "edit"&&<button onClick={()=>{handlelinksedit()}}>edit part</button>}
         {linksdrop2 && linksdrop1 === "delete"  &&<button onClick={()=>{handlelinksdelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Links parts///////////////////////////////////////////////////*/}
+<button onClick={()=>{handletemplateedit()}}>Edit Template</button>
+<button onClick={()=>{handletemplatedelete()}}>Delete Template</button>
         </div>
     </div>
   )

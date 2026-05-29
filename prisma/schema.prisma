@@ -61,7 +61,7 @@ model Contacts{
   website String
   contacted Boolean
   contacteddate DateTime
-  organisation Organisation @relation(fields: [organisationID],references: [id])
+  organisation Organisation @relation(fields: [organisationID],references: [id] ,onDelete: Cascade)
   organisationID String
 }
 
@@ -75,7 +75,7 @@ model Templates{
   Porfolio String
   Outro String
   Links String
-  organisation Organisation @relation(fields: [organisationID],references: [id])
+  organisation Organisation @relation(fields: [organisationID],references: [id] ,onDelete: Cascade)
   organisationID String
   templatesparts Templatesparts[]
 }
@@ -85,7 +85,7 @@ model Templatesparts{
   name String
   place String
   text String
-  templates Templates @relation(fields: [TemplatesID],references: [id])
+  templates Templates @relation(fields: [TemplatesID],references: [id] ,onDelete: Cascade)
   TemplatesID String
 }
 
