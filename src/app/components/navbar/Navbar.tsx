@@ -41,7 +41,7 @@ if(value === "addOrg"){
 changePage(value)
 setManageV("")
 }
-if(value === "temp"){
+if(value === "ManageTemp"){
   changePage(value)
   setManageV("")
 }
@@ -74,7 +74,7 @@ if(value === "temp"){
                     Manage
                   </option>
                   <option value="manageOrg">orginasation</option>
-                  <option value="manageTemp">template</option>
+                  <option value="ManageTemp">template</option>
                   </select></li>
               <li><button  className='Navbarbutton' onClick={() => {changePage("Leads")}}>Leads</button></li>
               <li><button  className='Navbarbutton' onClick={() => {changePage("Contact")}}>Contact</button></li>

@@ -13,6 +13,8 @@ import Contact from "./components/Contact/Contact";
 import Loadingscreen from "./components/Loadingscreen/Loadingscreen";
 import HomePage from "./components/HomePage/HomePage";
 import "@/styles/Homepage/Homepage.css"
+import ManageTemp from "./components/ManageTemp/ManageTemp";
+
 
 
 
@@ -78,6 +80,7 @@ const changePage = (text:string) => {
       {page === "Leads" && <Savecontact/>}
       {page === "Contact" && <Contact/>}
       {page === "home" && <HomePage/>}
+      {page === "ManageTemp" && <ManageTemp/>}
       
 {/*/////////////////////////////////////////////////////////////////////Nav//////////////////////////////////////////////////////////*/}
     </div>
