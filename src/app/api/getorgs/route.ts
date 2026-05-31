@@ -12,7 +12,6 @@ export const POST = async (req:Request) => {
         where:{userID:userID}
     })
     for (const Org of getOrgs){
-            Org.OrgID = decrypt(Org.OrgID);
             Org.name = decrypt(Org.name);
             Org.status = decrypt(Org.status);
         }

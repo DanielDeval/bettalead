@@ -10,11 +10,10 @@ export const POST = async (req:Request) => {
     try {
     const {formData , userID,orgID} = await req.json()
     const EncryptedformData = encrypt(formData)
-    const EncryptedformorgID = encrypt(orgID)
     const Encryptedstatus = encrypt("owner")
 
     const addToList = await prisma.organisationlist.create({
-        data:{name:EncryptedformData,status:Encryptedstatus,userID:userID, OrgID:EncryptedformorgID}
+        data:{name:EncryptedformData,status:Encryptedstatus,userID:userID, OrgID:orgID}
     })
      return NextResponse.json(addToList,{status:200})
      }catch(error){

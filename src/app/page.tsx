@@ -14,6 +14,7 @@ import Loadingscreen from "./components/Loadingscreen/Loadingscreen";
 import HomePage from "./components/HomePage/HomePage";
 import "@/styles/Homepage/Homepage.css"
 import ManageTemp from "./components/ManageTemp/ManageTemp";
+import ManageOrg from "./components/ManageOrg/ManageOrg";
 
 
 
@@ -81,6 +82,7 @@ const changePage = (text:string) => {
       {page === "Contact" && <Contact/>}
       {page === "home" && <HomePage/>}
       {page === "ManageTemp" && <ManageTemp/>}
+      {page === "ManageOrg" && <ManageOrg/>}
       
 {/*/////////////////////////////////////////////////////////////////////Nav//////////////////////////////////////////////////////////*/}
     </div>

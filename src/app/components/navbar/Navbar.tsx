@@ -37,7 +37,7 @@ if(value === "temp"){
 const [manageV, setManageV] = useState("")
 
 const handleManageNav = (value:string) => {
-if(value === "addOrg"){
+if(value === "ManageOrg"){
 changePage(value)
 setManageV("")
 }
@@ -73,7 +73,7 @@ if(value === "ManageTemp"){
                   >
                     Manage
                   </option>
-                  <option value="manageOrg">orginasation</option>
+                  <option value="ManageOrg">orginasation</option>
                   <option value="ManageTemp">template</option>
                   </select></li>
               <li><button  className='Navbarbutton' onClick={() => {changePage("Leads")}}>Leads</button></li>
