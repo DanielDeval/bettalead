@@ -19,7 +19,7 @@ const Homebar = ({startSignin,startSignup}:Homebartype) => {
           <img src="/betaleadlogo3.png" alt="logo" width={100}/>
             <ul className='flex gap-10 '>
               <li><button className='Navbarbutton' onClick={startSignin}>Log in</button></li>
-              <li><button className='Navbarbutton' onClick={startSignup}>Log in</button></li>
+              <li><button className='Navbarbutton' onClick={startSignup}>Sign up</button></li>
             </ul>
         </nav>
     </div>
