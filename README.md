@@ -94,6 +94,8 @@ Betta Lead is free and open source.
 
 If the project helps you stay organized, find work, or grow your studio, consider supporting development and hosting costs.
 
+https://ko-fi.com/dannydavel
+
 ## License
 
 MIT License
