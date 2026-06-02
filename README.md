@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Betta Lead
+
+Betta Lead is a free and open-source outreach workspace built for job seekers, freelancers, and small studios.
+
+It was created from a simple frustration: keeping track of outreach shouldn't require juggling spreadsheets, documents, email drafts, and expensive CRM software.
+
+## Why Betta Lead Exists
+
+After graduating into a difficult job market in 2020, I found myself managing job applications and freelance outreach through a messy combination of Google Docs, Gmail and Discord servers.
+
+Years later, after running a small studio and learning software development, I was about to repeat the same workflow again.
+
+So I decided to build the tool I wished I had.
+
+BettaLead helps organize outreach, store contacts, manage templates, and keep track of opportunities over time.
+
+Because getting work shouldn't require paying for enterprise software.
+
+## Features
+
+* Organization workspaces
+* Contact management
+* Reusable email templates
+* Dynamic template variables
+* Gmail compose workflow
+* End-to-end encrypted data storage
+* Template management
+* Organization management
+* Open-source and self-hostable
+
+## Current Release
+
+### V1 - Single Player Mode
+
+The first public release focuses on solo users.
+
+* Single-user workflows
+* Basic contact organization
+* Outreach management
+* Template creation and reuse
+
+Desktop-first experience.
+
+## Roadmap
+
+### V1.1
+
+* Improved responsiveness
+* Tablet support
+* Mobile usability improvements
+* Advanced contact organization
+
+### V2 - Multiplayer Mode
+
+* Shared organizations
+* User invitations
+* Team collaboration
+* Role management
+* Activity history
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
 ```bash
+git clone <repository-url>
+
+cd bettalead
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+Feedback, bug reports, feature requests, and discussions are always welcome.
 
-To learn more about Next.js, take a look at the following resources:
+At this stage of development, code contributions and pull requests are not being accepted.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Betta Lead handles encrypted user data and security-sensitive workflows, so all code changes are currently reviewed, implemented, and maintained by the project owner.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you've identified a bug, security concern, or improvement, please open an issue and include as much detail as possible.
 
-## Deploy on Vercel
+Community feedback plays a major role in shaping the roadmap and future development of the project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Support Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Betta Lead is free and open source.
+
+If the project helps you stay organized, find work, or grow your studio, consider supporting development and hosting costs.
+
+## License
+
+MIT License
