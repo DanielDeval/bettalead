@@ -63,7 +63,7 @@ Desktop-first experience.
 ### Installation
 
 ```bash
-git clone <repository-url>
+git clone <https://github.com/DanielDeval/bettalead>
 
 cd bettalead
 
