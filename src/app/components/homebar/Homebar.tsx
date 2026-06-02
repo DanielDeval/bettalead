@@ -20,6 +20,7 @@ const Homebar = ({startSignin,startSignup}:Homebartype) => {
             <ul className='flex gap-10 '>
               <li><button className='Navbarbutton' onClick={startSignin}>Log in</button></li>
               <li><button className='Navbarbutton' onClick={startSignup}>Sign up</button></li>
+              <li><button  className='Navbarbutton' onClick={() => {window.open("https://ko-fi.com/dannydavel", "_blank");}}>Donate</button></li>
             </ul>
         </nav>
     </div>

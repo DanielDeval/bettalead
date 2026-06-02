@@ -78,6 +78,7 @@ if(value === "ManageTemp"){
                   </select></li>
               <li><button  className='Navbarbutton' onClick={() => {changePage("Leads")}}>Leads</button></li>
               <li><button  className='Navbarbutton' onClick={() => {changePage("Contact")}}>Contact</button></li>
+              <li><button  className='Navbarbutton' onClick={() => {window.open("https://ko-fi.com/dannydavel", "_blank");}}>Donate</button></li>
               <li><button  className='Navbarbutton'  onClick={() => {(signingOut())}}>Logout</button></li>
             </ul>
         </nav>
