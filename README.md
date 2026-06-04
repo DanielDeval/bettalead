@@ -76,6 +76,11 @@ Open:
 
 http://localhost:3000
 
+
+## how to use, walk through
+
+https://youtu.be/RPRftv0VMyk
+
 ## Contributing
 
 Feedback, bug reports, feature requests, and discussions are always welcome.
