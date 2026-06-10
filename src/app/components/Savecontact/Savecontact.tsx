@@ -48,6 +48,7 @@ const [formdata, setFormdata ] = useState({
   jobdecriction:"",
   services:"",
   type:"",
+  location:"",
   link:"",
   website:"",
   organisationID:"",
@@ -65,6 +66,7 @@ const saveContect = async () => {
                         jobdecriction:formdata.jobdecriction,
                         services:formdata.services,
                         type:formdata.type,
+                        location:formdata.location,
                         link:formdata.link,
                         website:formdata.website,
                         organisationID:formdata.organisationID,
@@ -81,6 +83,7 @@ const saveContect = async () => {
                         jobdecriction:"",
                         services:"",
                         type:"",
+                        location:"",
                         link:"",
                         website:"", 
   }))
@@ -109,6 +112,7 @@ const saveContect = async () => {
         <textarea placeholder='Job description' value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>
         <input placeholder='Services to offer' type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>
         <input placeholder='Company type' type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>
+        <input placeholder='Company location' type='text'value={formdata.location} onChange={(e)=>{setFormdata({...formdata,location: e.target.value})}}/>
         <input placeholder='Website' type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>
         <input placeholder='Additional links' type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>
         <button onClick={()=>{saveContect()}}>Save</button>

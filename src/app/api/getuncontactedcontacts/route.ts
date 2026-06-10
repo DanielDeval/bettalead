@@ -22,6 +22,7 @@ export const POST = async (req:Request) => {
         contact.jobdecriction = decrypt(contact.jobdecriction);
         contact.services = decrypt(contact.services);
         contact.type = decrypt(contact.type);
+        contact.location = decrypt(contact.location);
         contact.link = decrypt(contact.link);
         contact.website = decrypt(contact.website);
      }

@@ -57,6 +57,7 @@ model Contacts{
   jobdecriction String
   services String
   type String
+  location String
   link String
   website String
   contacted Boolean

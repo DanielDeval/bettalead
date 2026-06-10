@@ -19,7 +19,7 @@ type Contactlisttype = {
     setContactcompanyID:(input:string)=>void
     editcontact:(id:string,companyname:string,number:string,email:string,
                             personaliseddata:string,jobdecriction:string,services:string,
-                            type:string,website:string,link:string)=>void
+                            type:string,location:string,website:string,link:string)=>void
 }
 
 const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail,setContactcompanyID,editcontact}:Contactlisttype) => {

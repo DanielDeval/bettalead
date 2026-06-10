@@ -96,7 +96,7 @@ const removeContact = (id:string) => {
 
 const editcontact = (id:string,companyname:string,number:string,email:string,
                             personaliseddata:string,jobdecriction:string,services:string,
-                            type:string,website:string,link:string) => {
+                            type:string,website:string,link:string,location:string) => {
 setContacts((prev) =>prev.map((contact) =>contact.id === id ? {
               ...contact,
             companyname,
@@ -106,6 +106,7 @@ setContacts((prev) =>prev.map((contact) =>contact.id === id ? {
             jobdecriction,
             services,
             type,
+            location,
             website,
             link,
           }

@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 
 
 export const POST = async(req:Request) => {
-    const {name, companyname, email, number, personaliseddata, jobdecriction, services, type, link, website,organisationID} = await req.json()
+    const {name, companyname, email, number, personaliseddata, jobdecriction, services, type,location, link, website,organisationID} = await req.json()
     const encryptedname = encrypt(name)
     const encryptedcompanyname = encrypt(companyname)
     const encryptedemail = encrypt(email)
@@ -14,12 +14,14 @@ export const POST = async(req:Request) => {
     const encryptedjobdecriction = encrypt(jobdecriction)
     const encryptedservices = encrypt(services)
     const encryptedtype = encrypt(type)
+    const encryptedlocation = encrypt(location)
     const encryptedlink = encrypt(link)
     const encryptedwebsite = encrypt(website)
     const saveContact = await prisma.contacts.create({
         data:{name:encryptedname, companyname:encryptedcompanyname, email:encryptedemail, number:encryptednumber,
             personaliseddata:encryptedpersonaliseddata
-            ,jobdecriction:encryptedjobdecriction, services:encryptedservices, type:encryptedtype, link:encryptedlink, website:
+            ,jobdecriction:encryptedjobdecriction, services:encryptedservices, type:encryptedtype,location:encryptedlocation,
+             link:encryptedlink, website:
             encryptedwebsite,organisationID, contacted:false, contacteddate:new Date()}
     })
     return NextResponse.json(saveContact,{status:200})
