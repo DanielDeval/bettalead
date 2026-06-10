@@ -102,7 +102,7 @@ const saveContect = async () => {
         ))}
         </select>
         <input placeholder='Company name' type='text' value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name: e.target.value})}}/>
-        <input placeholder='Name of contact' type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>
+        <input placeholder='Name on the email' type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>
         <input placeholder='Email address' type='text'value={formdata.email} onChange={(e)=>{setFormdata({...formdata,email: e.target.value})}}/>
         <input placeholder='Contact number' type='text'value={formdata.number} onChange={(e)=>{setFormdata({...formdata,number: e.target.value})}}/>
         <textarea placeholder='Company data' value={formdata.personaliseddata} onChange={(e)=>{setFormdata({...formdata,personaliseddata: e.target.value})}}/>

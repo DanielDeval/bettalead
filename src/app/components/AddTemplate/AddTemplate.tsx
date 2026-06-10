@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import {useSession} from "@/lib/auth-client"
 import { Organisationlist, Templates } from '@/generated/prisma/client';
-import "@/styles//AddTemplate/AddTemplate.css"
+import "@/styles/AddTemplate/AddTemplate.css"
 
 const AddTemplate = () => {
 

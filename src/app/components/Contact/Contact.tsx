@@ -94,6 +94,27 @@ const removeContact = (id:string) => {
     )
 }
 
+const editcontact = (id:string,companyname:string,number:string,email:string,
+                            personaliseddata:string,jobdecriction:string,services:string,
+                            type:string,website:string,link:string) => {
+setContacts((prev) =>prev.map((contact) =>contact.id === id ? {
+              ...contact,
+            companyname,
+            number,
+            email,
+            personaliseddata,
+            jobdecriction,
+            services,
+            type,
+            website,
+            link,
+          }
+        : contact
+    )
+  );
+};
+
+
 
 
 /*///////////////////////////////////////////////////////////////////get Contacts/////////////////////////////////////////////////////////////*/
@@ -117,7 +138,8 @@ const handleemailmode = (input:boolean) => {
                                      contacts={contacts} setorgID={setorgID}
                                      setContactname={setContactname}
                                      setContactemail={setContactemail}
-                                     setContactcompanyID={setContactcompanyID}/>}
+                                     setContactcompanyID={setContactcompanyID}
+                                     editcontact={editcontact}/>}
         {emailmode && <Emailmaker handleemailmode={handleemailmode} localstate={localstate} removeContact={removeContact} />}
         
     </div></div>

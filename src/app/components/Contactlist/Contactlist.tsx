@@ -17,9 +17,12 @@ type Contactlisttype = {
     setContactname:(input:string)=>void
     setContactemail:(input:string)=>void
     setContactcompanyID:(input:string)=>void
+    editcontact:(id:string,companyname:string,number:string,email:string,
+                            personaliseddata:string,jobdecriction:string,services:string,
+                            type:string,website:string,link:string)=>void
 }
 
-const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail,setContactcompanyID}:Contactlisttype) => {
+const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,setorgID,setContactname,setContactemail,setContactcompanyID,editcontact}:Contactlisttype) => {
 
 
 
@@ -45,7 +48,8 @@ const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,se
             setContactname={setContactname}
             handleemailmode={handleemailmode}
             setContactemail={setContactemail}
-            setContactcompanyID={setContactcompanyID}/>
+            setContactcompanyID={setContactcompanyID}
+            editcontact={editcontact}/>
         ) )}
 
     </div></div>
