@@ -1,5 +1,5 @@
 "use client"
-import { Organisationlist } from '@/generated/prisma/client'
+import { Contacts, Organisationlist } from '@/generated/prisma/client'
 import { useSession } from '@/lib/auth-client';
 import React, { useEffect, useState } from 'react'
 import "@/styles/Savecontact/Savecontact.css"
@@ -37,7 +37,36 @@ useEffect(() => {
 /*///////////////////////////////////////////////////////////////////Get Orgs/////////////////////////////////////////////////////////////////*/
 
 
+/*///////////////////////////////////////////////////////////////////Get Contacts/////////////////////////////////////////////////////////////*/
 
+const [contacts, setContacts] = useState<Contacts[]>([])
+const [uniquelocation, setUniquelocation] = useState<string[]>([])
+
+
+  const getTheContacts = async (selected:string) => {
+    const GoGetTheContacts = await fetch("api/getuncontactedcontacts",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify(selected)
+    })
+    const data = await GoGetTheContacts.json()
+    setContacts(data)
+    if(GoGetTheContacts.status === 200){
+      getlocation(data)
+    }
+}
+
+const getlocation = (data:Contacts[]) => {
+  setUniquelocation([...new Set(data.map(contact => contact.location))])
+}
+
+
+
+
+
+/*///////////////////////////////////////////////////////////////////Get Contacts/////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////handle Form/////////////////////////////////////////////////////////////*/
 
 const [formdata, setFormdata ] = useState({
   name:"",
@@ -90,11 +119,25 @@ const saveContect = async () => {
   }
   
 }
+/*///////////////////////////////////////////////////////////////////handle Form/////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////handle location form///////////////////////////////////////////////////*/
+
+const [locationform, setLocationform] = useState("")
+
+
+const handlelocationsave = () => {
+  setUniquelocation(prev => [...prev,locationform])
+  setFormdata((prev)=>({...prev,location:locationform}))
+  setLocationform("")
+}
+
+/*///////////////////////////////////////////////////////////////////handle location form///////////////////////////////////////////////////*/
 
 
   return (
     <div className='SavecontactWrapper'><div  className='Savecontact'>
-        <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});}}>
+        <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});getTheContacts(e.target.value)}}>
           <option value="" disabled hidden>
                   Select Orginization
                 </option>
@@ -112,7 +155,19 @@ const saveContect = async () => {
         <textarea placeholder='Job description' value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>
         <input placeholder='Services to offer' type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>
         <input placeholder='Company type' type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>
-        <input placeholder='Company location' type='text'value={formdata.location} onChange={(e)=>{setFormdata({...formdata,location: e.target.value})}}/>
+        <select  value={formdata.location} onChange={(e)=>{setFormdata({...formdata,location:e.target.value});}}>
+          <option value="" disabled hidden>
+                  Select Location
+                </option>
+          <option value="create">Create</option>
+          {uniquelocation.map((location) => (
+          <option key={location} value={location}>
+            {location}
+          </option>
+        ))}
+        </select>
+        {formdata.location === "create" &&<input value={locationform} onChange={(e)=>{setLocationform(e.target.value)}}></input>}
+        {locationform && locationform !== "" && <button onClick={()=>{handlelocationsave()}}>Save</button>}
         <input placeholder='Website' type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>
         <input placeholder='Additional links' type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>
         <button onClick={()=>{saveContect()}}>Save</button>
