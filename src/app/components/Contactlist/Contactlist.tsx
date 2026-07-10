@@ -31,7 +31,7 @@ const [localeststate, setLocaleststate] = useState("")
 
   return (
     <div className='ContactlistWrapper'><div className='Contactlist'>
-        <select  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);setLocaleststate(e.target.value)}}>
+        <select  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);setLocaleststate(e.target.value);setorgID(e.target.value)}}>
           <option value="" disabled hidden>
                   Select Orginization
                 </option>

@@ -1,4 +1,6 @@
 .scrollwrapper {
-    height: 60vh;
-    overflow-y: auto;
+    min-height: 200px;
+    height: 200px;
+    width: 40vw;
+    overflow-y: scroll;
 }

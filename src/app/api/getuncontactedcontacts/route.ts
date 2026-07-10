@@ -6,9 +6,9 @@ import { NextResponse } from "next/server"
 
 
 export const POST = async (req:Request) => {
-    const {orgID} = await req.json()
+    const {selected} = await req.json()
     const contacts = await prisma.contacts.findMany(
-       { where: {organisationID:orgID,
+       { where: {organisationID:selected,
         contacted: false
        }}
        

@@ -81,7 +81,7 @@ const getTheContacts = async (selected:string) => {
     const GoGetTheContacts = await fetch("api/getuncontactedcontacts",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify(selected)
+        body: JSON.stringify({selected})
     })
     const data = await GoGetTheContacts.json()
     setContacts(data)
