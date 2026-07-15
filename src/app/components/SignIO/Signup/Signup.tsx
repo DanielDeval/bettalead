@@ -41,20 +41,20 @@ const Signup = ({SigninAndSignupBack}:SignupTypes) => {
       <h1>Signup</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input
+        <input  className="Popup2input"
           name="name"
           placeholder="Full Name"
           required
           
         />
-        <input
+        <input className="Popup2input"
           name="email"
           type="email"
           placeholder="Email"
           required
           
         />
-        <input
+        <input className="Popup2input"
           name="password"
           type="password"
           placeholder="Password"
@@ -62,17 +62,17 @@ const Signup = ({SigninAndSignupBack}:SignupTypes) => {
           minLength={8}
           
         />
-        <button
+        <button className="Popup2button"
           type="submit"
           
         >
           Create Account
         </button>
-        
-      </form>
-      <button onClick={SigninAndSignupBack}>
+        <button  className="Popup2button" onClick={SigninAndSignupBack}>
           back
         </button>
+      </form>
+      
     </div></div>
     
   )

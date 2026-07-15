@@ -31,12 +31,12 @@ const [localeststate, setLocaleststate] = useState("")
 
   return (
     <div className='ContactlistWrapper'><div className='Contactlist'>
-        <select  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);setLocaleststate(e.target.value);setorgID(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select className='Contactlistselect'  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);setLocaleststate(e.target.value);setorgID(e.target.value)}}>
+          <option className='Contactlistoption' value="" disabled hidden>
                   Select Orginization
                 </option>
           {orgs.map((org) => (
-          <option key={org.id} value={org.OrgID}>
+          <option className='Contactlistoption' key={org.id} value={org.OrgID}>
             {org.name}
           </option>
         ))}

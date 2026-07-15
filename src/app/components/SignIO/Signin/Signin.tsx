@@ -40,31 +40,32 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       <h1>Signin</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit} >
-        <input
+        <input className="Popup2input"
           name="email"
           type="email"
           placeholder="Email"
           required
           
         />
-        <input
+        <input className="Popup2input"
           name="password"
           type="password"
           placeholder="Password"
           required
           
         />
-        <button
+        <button className="Popup2button"
           type="submit"
          
         >
           Sign In
         </button>
-        
-      </form>
-      <button onClick={SigninAndSignupBack}>
+        <button className="Popup2button" onClick={SigninAndSignupBack}>
           back
         </button>
+        
+      </form>
+      
     </div></div>
   )
 }

@@ -137,40 +137,40 @@ const handlelocationsave = () => {
 
   return (
     <div className='SavecontactWrapper'><div  className='Savecontact'>
-        <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});getTheContacts(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select  className='Savecontactselect'  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});getTheContacts(e.target.value)}}>
+          <option className='Savecontactoption' value="" disabled hidden>
                   Select Orginization
                 </option>
           {orgs.map((org) => (
-          <option key={org.id} value={org.OrgID}>
+          <option className='Savecontactoption' key={org.id} value={org.OrgID}>
             {org.name}
           </option>
         ))}
         </select>
-        <input placeholder='Company name' type='text' value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name: e.target.value})}}/>
-        <input placeholder='Name on the email' type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>
-        <input placeholder='Email address' type='text'value={formdata.email} onChange={(e)=>{setFormdata({...formdata,email: e.target.value})}}/>
-        <input placeholder='Contact number' type='text'value={formdata.number} onChange={(e)=>{setFormdata({...formdata,number: e.target.value})}}/>
-        <textarea placeholder='Company data' value={formdata.personaliseddata} onChange={(e)=>{setFormdata({...formdata,personaliseddata: e.target.value})}}/>
-        <textarea placeholder='Job description' value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>
-        <input placeholder='Services to offer' type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>
-        <input placeholder='Company type' type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>
-        <select  value={formdata.location} onChange={(e)=>{setFormdata({...formdata,location:e.target.value});}}>
-          <option value="" disabled hidden>
+        <input className='Savecontactinput' placeholder='Company name' type='text' value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name: e.target.value})}}/>
+        <input  className='Savecontactinput' placeholder='Name on the email' type='text'value={formdata.companyname} onChange={(e)=>{setFormdata({...formdata,companyname: e.target.value})}}/>
+        <input  className='Savecontactinput' placeholder='Email address' type='text'value={formdata.email} onChange={(e)=>{setFormdata({...formdata,email: e.target.value})}}/>
+        <input  className='Savecontactinput' placeholder='Contact number' type='text'value={formdata.number} onChange={(e)=>{setFormdata({...formdata,number: e.target.value})}}/>
+        <textarea  className='Savecontacttextarea' placeholder='Company data' value={formdata.personaliseddata} onChange={(e)=>{setFormdata({...formdata,personaliseddata: e.target.value})}}/>
+        <textarea  className='Savecontacttextarea' placeholder='Job description' value={formdata.jobdecriction} onChange={(e)=>{setFormdata({...formdata,jobdecriction: e.target.value})}}/>
+        <input className='Savecontactinput' placeholder='Services to offer' type='text'value={formdata.services} onChange={(e)=>{setFormdata({...formdata,services: e.target.value})}}/>
+        <input className='Savecontactinput' placeholder='Company type' type='text'value={formdata.type} onChange={(e)=>{setFormdata({...formdata,type: e.target.value})}}/>
+        <select  className='Savecontactselect' value={formdata.location} onChange={(e)=>{setFormdata({...formdata,location:e.target.value});}}>
+          <option className='Savecontactoption' value="" disabled hidden>
                   Select Location
                 </option>
-          <option value="create">Create</option>
+          <option className='Savecontactoption' value="create">Create</option>
           {uniquelocation.map((location) => (
-          <option key={location} value={location}>
+          <option className='Savecontactoption' key={location} value={location}>
             {location}
           </option>
         ))}
         </select>
-        {formdata.location === "create" &&<input value={locationform} onChange={(e)=>{setLocationform(e.target.value)}}></input>}
-        {locationform && locationform !== "" && <button onClick={()=>{handlelocationsave()}}>Save</button>}
-        <input placeholder='Website' type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>
-        <input placeholder='Additional links' type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>
-        <button onClick={()=>{saveContect()}}>Save</button>
+        {formdata.location === "create" &&<input className='Savecontactinput' value={locationform} onChange={(e)=>{setLocationform(e.target.value)}}></input>}
+        {locationform && locationform !== "" && <button  className='Savecontactbutton' onClick={()=>{handlelocationsave()}}>Save</button>}
+        <input className='Savecontactinput' placeholder='Website' type='text'value={formdata.website} onChange={(e)=>{setFormdata({...formdata,website: e.target.value})}}/>
+        <input className='Savecontactinput' placeholder='Additional links' type='text'value={formdata.link} onChange={(e)=>{setFormdata({...formdata,link: e.target.value})}}/>
+        <button  className='Savecontactbutton' onClick={()=>{saveContect()}}>Save</button>
     </div></div>
   )
 }

@@ -106,26 +106,26 @@ const ManageOrg = () => {
   return (
     <div className='ManageOrgWrapper'>
         <div className='ManageOrg'>
-            <select value={selectorg} onChange={(e)=>{setSelectorg(e.target.value)}}>
-              <option value="" disabled hidden>
+            <select  className='ManageOrgselect' value={selectorg} onChange={(e)=>{setSelectorg(e.target.value)}}>
+              <option className='ManageOrgoption' value="" disabled hidden>
                   Select Orginization
                 </option>
                 {orgs.map((org) => (
-                <option key={org.id} value={org.OrgID}>
+                <option className='ManageOrgoption' key={org.id} value={org.OrgID}>
                {org.name}
                   </option>
                 ))}        
             </select>
-            {selectorg!== "" && <select value={selectfunc} onChange={(e)=>{setSelectfunc(e.target.value)}}>
-              <option value="" disabled hidden>
+            {selectorg!== "" && <select className='ManageOrgselect' value={selectfunc} onChange={(e)=>{setSelectfunc(e.target.value)}}>
+              <option className='ManageOrgoption' value="" disabled hidden>
                   Select operation
                 </option>
-            <option value={"Delete"}>Delete</option>
-            <option value={"edit"}>Edit</option>
+            <option className='ManageOrgoption' value={"Delete"}>Delete</option>
+            <option className='ManageOrgoption' value={"edit"}>Edit</option>
             </select>}
-            {selectfunc === "edit" && <input value={name} onChange={(e)=>{setName(e.target.value)}}></input>}
-            {selectfunc === "Delete" &&<button onClick={() => handleDelete()}>Delete</button>}
-            {selectfunc === "edit" && name !== "" &&<button onClick={() => handleedit()}>Edit</button>}
+            {selectfunc === "edit" && <input className='ManageOrginput' value={name} onChange={(e)=>{setName(e.target.value)}}></input>}
+            {selectfunc === "Delete" &&<button className='ManageOrgbutton' onClick={() => handleDelete()}>Delete</button>}
+            {selectfunc === "edit" && name !== "" &&<button  className='ManageOrgbutton' onClick={() => handleedit()}>Edit</button>}
         </div>
     </div>
   )

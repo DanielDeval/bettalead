@@ -562,177 +562,177 @@ const handletemplateedit = async () => {
   return (
     <div  className='ManageTempWrapper'>
         <div className='ManageTemp'>
-            <select value={localstate.orgID} onChange={(e)=>{getTemplates(e.target.value);
+            <select className='Manageselect' value={localstate.orgID} onChange={(e)=>{getTemplates(e.target.value);
                                                              setlocalstate((prev)=>({...prev,orgID:e.target.value}))}}>
-                <option value="" disabled hidden>
+                <option  className='Manageoption' value="" disabled hidden>
                   Select
                 </option>
             {orgs.map((org) => (
-          <option key={org.id} value={org.OrgID}>
+          <option  className='Manageoption' key={org.id} value={org.OrgID}>
             {org.name}
           </option>
         ))}
             </select>
-            <select value={localstate.tempID} onChange={(e)=>{selectthetemplate(e.target.value);
+            <select  className='Manageselect' value={localstate.tempID} onChange={(e)=>{selectthetemplate(e.target.value);
                                                 setlocalstate((prev)=>({...prev,tempID:e.target.value}))
             }}>
-                <option value="" disabled hidden>
+                <option  className='Manageoption' value="" disabled hidden>
                   Select
                 </option>
                 {templates.map((template) => (
-          <option key={template.id} value={template.id}>
+          <option  className='Manageoption' key={template.id} value={template.id}>
             {template.name}
           </option>
         ))}
             </select>
-        <input value={Formdata.name} onChange={(e)=>{setFormdata((prev)=>({...prev,name:e.target.value}))}}></input>
+        <input  className='Manageinput' value={Formdata.name} onChange={(e)=>{setFormdata((prev)=>({...prev,name:e.target.value}))}}></input>
 {/*////////////////////////////////////////////////////////////////intro parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.intro} onChange={(e)=>{setFormdata((prev)=>({...prev,intro:e.target.value}))}}></textarea>
-        <select value={introdrop1} onChange={(e)=>{setIntrodrop1(e.target.value);handleintrodropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea className='Managetextarea' value={Formdata.intro} onChange={(e)=>{setFormdata((prev)=>({...prev,intro:e.target.value}))}}></textarea>
+        <select  className='Manageselect' value={introdrop1} onChange={(e)=>{setIntrodrop1(e.target.value);handleintrodropdown1(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
-                <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+                <option  className='Manageoption' value="back">back</option>
+          <option  className='Manageoption' value={"edit"}>Edit part</option>
+          <option  className='Manageoption' value={"delete"}>Delete part</option>
           
         </select>
         {localintrostate && 
-        <select value={introdrop2} onChange={(e)=>{setIntrodrop2(e.target.value);handledropdown2intro(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select  className='Manageselect' value={introdrop2} onChange={(e)=>{setIntrodrop2(e.target.value);handledropdown2intro(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {introparts.map((intropart) => (
-          <option key={intropart.id} value={intropart.id}>
+          <option  className='Manageoption' key={intropart.id} value={intropart.id}>
             {intropart.name}
           </option>
         ))}
           </select>}
-        {introdrop2 && introdrop1 === "edit"&&<button onClick={()=>{handleintroedit()}}>edit part</button>}
-        {introdrop2 && introdrop1 === "delete"  &&<button onClick={()=>{handleintrodelete()}}>deletepart</button>}
+        {introdrop2 && introdrop1 === "edit"&&<button  className='Managebutton' onClick={()=>{handleintroedit()}}>edit part</button>}
+        {introdrop2 && introdrop1 === "delete"  &&<button  className='Managebutton' onClick={()=>{handleintrodelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////intro parts///////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Introduction parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.Introduction} onChange={(e)=>{setFormdata((prev)=>({...prev,Introduction:e.target.value}))}}></textarea>
-        <select value={introductiondrop1} onChange={(e)=>{setIntroductiondrop1(e.target.value);handleintroductiondropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea className='Managetextarea' value={Formdata.Introduction} onChange={(e)=>{setFormdata((prev)=>({...prev,Introduction:e.target.value}))}}></textarea>
+        <select className='Manageselect' value={introductiondrop1} onChange={(e)=>{setIntroductiondrop1(e.target.value);handleintroductiondropdown1(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
-                <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+                <option className='Manageoption' value="back">back</option>
+          <option className='Manageoption' value={"edit"}>Edit part</option>
+          <option className='Manageoption' value={"delete"}>Delete part</option>
         </select>
         {localintroductionstate && 
-        <select value={introductiondrop2} onChange={(e)=>{setIntroductiondrop2(e.target.value);handledropdown2introduction(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select className='Manageselect' value={introductiondrop2} onChange={(e)=>{setIntroductiondrop2(e.target.value);handledropdown2introduction(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {Introductionparts.map((Introductionpart) => (
-          <option key={Introductionpart.id} value={Introductionpart.id}>
+          <option className='Manageoption' key={Introductionpart.id} value={Introductionpart.id}>
             {Introductionpart.name}
           </option>
         ))}
           </select>}
-        {introductiondrop2 && introductiondrop1 === "edit"&&<button onClick={()=>{handleintroductionedit()}}>edit part</button>}
-        {introductiondrop2 && introductiondrop1 === "delete"  &&<button onClick={()=>{handleintroductiondelete()}}>deletepart</button>}
+        {introductiondrop2 && introductiondrop1 === "edit"&&<button className='Managebutton' onClick={()=>{handleintroductionedit()}}>edit part</button>}
+        {introductiondrop2 && introductiondrop1 === "delete"  &&<button className='Managebutton' onClick={()=>{handleintroductiondelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Introduction parts///////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Offer parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.Offer} onChange={(e)=>{setFormdata((prev)=>({...prev,Offer:e.target.value}))}}></textarea>
-        <select value={offerdrop1} onChange={(e)=>{setOfferdrop1(e.target.value);handleiofferdropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea className='Managetextarea' value={Formdata.Offer} onChange={(e)=>{setFormdata((prev)=>({...prev,Offer:e.target.value}))}}></textarea>
+        <select  className='Manageselect' value={offerdrop1} onChange={(e)=>{setOfferdrop1(e.target.value);handleiofferdropdown1(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
-                <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+                <option  className='Manageoption' value="back">back</option>
+          <option  className='Manageoption' value={"edit"}>Edit part</option>
+          <option  className='Manageoption' value={"delete"}>Delete part</option>
         </select>
         {localofferstate && 
-        <select value={offerdrop2} onChange={(e)=>{setOfferdrop2(e.target.value);handledropdown2offer(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select  className='Manageselect' value={offerdrop2} onChange={(e)=>{setOfferdrop2(e.target.value);handledropdown2offer(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {Offerparts.map((Offerpart) => (
-          <option key={Offerpart.id} value={Offerpart.id}>
+          <option className='Manageoption' key={Offerpart.id} value={Offerpart.id}>
             {Offerpart.name}
           </option>
         ))}
           </select>}
-        {offerdrop2 && offerdrop1 === "edit"&&<button onClick={()=>{handleofferedit()}}>edit part</button>}
-        {offerdrop2 && offerdrop1 === "delete"  &&<button onClick={()=>{handleofferdelete()}}>deletepart</button>}
+        {offerdrop2 && offerdrop1 === "edit"&&<button className='Managebutton' onClick={()=>{handleofferedit()}}>edit part</button>}
+        {offerdrop2 && offerdrop1 === "delete"  &&<button className='Managebutton' onClick={()=>{handleofferdelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Offer parts///////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Porfolio parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.Porfolio} onChange={(e)=>{setFormdata((prev)=>({...prev,Porfolio:e.target.value}))}}></textarea>
-        <select value={porfoliodrop1} onChange={(e)=>{setPorfoliodrop1(e.target.value);handleporfoliodropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea className='Managetextarea' value={Formdata.Porfolio} onChange={(e)=>{setFormdata((prev)=>({...prev,Porfolio:e.target.value}))}}></textarea>
+        <select  className='Manageselect' value={porfoliodrop1} onChange={(e)=>{setPorfoliodrop1(e.target.value);handleporfoliodropdown1(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
                 <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+          <option  className='Manageoption' value={"edit"}>Edit part</option>
+          <option  className='Manageoption' value={"delete"}>Delete part</option>
         </select>
         {localporfoliostate && 
-        <select value={porfoliodrop2} onChange={(e)=>{setPorfoliodrop2(e.target.value);handledropdown2porfolio(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select  className='Manageselect' value={porfoliodrop2} onChange={(e)=>{setPorfoliodrop2(e.target.value);handledropdown2porfolio(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {Porfolioparts.map((Porfoliopart) => (
-          <option key={Porfoliopart.id} value={Porfoliopart.id}>
+          <option  className='Manageoption' key={Porfoliopart.id} value={Porfoliopart.id}>
             {Porfoliopart.name}
           </option>
         ))}
           </select>}
-        {porfoliodrop2 && porfoliodrop1 === "edit"&&<button onClick={()=>{handleporfolioedit()}}>edit part</button>}
-        {porfoliodrop2 && porfoliodrop1 === "delete"  &&<button onClick={()=>{handleporfoliodelete()}}>deletepart</button>}
+        {porfoliodrop2 && porfoliodrop1 === "edit"&&<button  className='Managebutton' onClick={()=>{handleporfolioedit()}}>edit part</button>}
+        {porfoliodrop2 && porfoliodrop1 === "delete"  &&<button  className='Managebutton' onClick={()=>{handleporfoliodelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Porfolio parts///////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Outro parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.Outro} onChange={(e)=>{setFormdata((prev)=>({...prev,Outro:e.target.value}))}}></textarea>
-        <select value={outrodrop1} onChange={(e)=>{setOutrodrop1(e.target.value);handleoutrodropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea  className='Managetextarea' value={Formdata.Outro} onChange={(e)=>{setFormdata((prev)=>({...prev,Outro:e.target.value}))}}></textarea>
+        <select   className='Manageselect' value={outrodrop1} onChange={(e)=>{setOutrodrop1(e.target.value);handleoutrodropdown1(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
-                <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+                <option  className='Manageoption' value="back">back</option>
+          <option  className='Manageoption' value={"edit"}>Edit part</option>
+          <option  className='Manageoption' value={"delete"}>Delete part</option>
         </select>
         {localoutrostate && 
-        <select value={outrodrop2} onChange={(e)=>{setOutrodrop2(e.target.value);handledropdown2outro(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select className='Manageselect' value={outrodrop2} onChange={(e)=>{setOutrodrop2(e.target.value);handledropdown2outro(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {Outroparts.map((Outropart) => (
-          <option key={Outropart.id} value={Outropart.id}>
+          <option className='Manageoption' key={Outropart.id} value={Outropart.id}>
             {Outropart.name}
           </option>
         ))}
           </select>}
-        {outrodrop2 && outrodrop1 === "edit"&&<button onClick={()=>{handleoutroedit()}}>edit part</button>}
-        {outrodrop2 && outrodrop1 === "delete"  &&<button onClick={()=>{handleoutrodelete()}}>deletepart</button>}
+        {outrodrop2 && outrodrop1 === "edit"&&<button  className='Managebutton' onClick={()=>{handleoutroedit()}}>edit part</button>}
+        {outrodrop2 && outrodrop1 === "delete"  &&<button  className='Managebutton' onClick={()=>{handleoutrodelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Outro parts///////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Links parts///////////////////////////////////////////////////*/}
-        <textarea value={Formdata.Links} onChange={(e)=>{setFormdata((prev)=>({...prev,Links:e.target.value}))}}></textarea>
-        <select value={linksdrop1} onChange={(e)=>{setLinksdrop1(e.target.value);handlelinksdropdown1(e.target.value)}}>
-          <option value="" disabled hidden>
+        <textarea  className='Managetextarea' value={Formdata.Links} onChange={(e)=>{setFormdata((prev)=>({...prev,Links:e.target.value}))}}></textarea>
+        <select className='Manageselect' value={linksdrop1} onChange={(e)=>{setLinksdrop1(e.target.value);handlelinksdropdown1(e.target.value)}}>
+          <option className='Manageoption' value="" disabled hidden>
                   manage parts
                 </option>
-                <option value="back">back</option>
-          <option value={"edit"}>Edit part</option>
-          <option value={"delete"}>Delete part</option>
+                <option className='Manageoption' value="back">back</option>
+          <option className='Manageoption' value={"edit"}>Edit part</option>
+          <option className='Manageoption' value={"delete"}>Delete part</option>
         </select>
         {locallinksstate && 
-        <select value={linksdrop2} onChange={(e)=>{setLinksdrop2(e.target.value);handledropdown2links(e.target.value)}}>
-          <option value="" disabled hidden>
+        <select  className='Manageselect' value={linksdrop2} onChange={(e)=>{setLinksdrop2(e.target.value);handledropdown2links(e.target.value)}}>
+          <option  className='Manageoption' value="" disabled hidden>
                   Select Part
                 </option>
           {Linksparts.map((Linkspart) => (
-          <option key={Linkspart.id} value={Linkspart.id}>
+          <option  className='Manageoption' key={Linkspart.id} value={Linkspart.id}>
             {Linkspart.name}
           </option>
         ))}
           </select>}
-        {linksdrop2 && linksdrop1 === "edit"&&<button onClick={()=>{handlelinksedit()}}>edit part</button>}
-        {linksdrop2 && linksdrop1 === "delete"  &&<button onClick={()=>{handlelinksdelete()}}>deletepart</button>}
+        {linksdrop2 && linksdrop1 === "edit"&&<button  className='Managebutton' onClick={()=>{handlelinksedit()}}>edit part</button>}
+        {linksdrop2 && linksdrop1 === "delete"  &&<button  className='Managebutton' onClick={()=>{handlelinksdelete()}}>deletepart</button>}
 {/*////////////////////////////////////////////////////////////////Links parts///////////////////////////////////////////////////*/}
-<button onClick={()=>{handletemplateedit()}}>Edit Template</button>
-<button onClick={()=>{handletemplatedelete()}}>Delete Template</button>
+<button  className='Managebutton' onClick={()=>{handletemplateedit()}}>Edit Template</button>
+<button  className='Managebutton' onClick={()=>{handletemplatedelete()}}>Delete Template</button>
         </div>
     </div>
   )

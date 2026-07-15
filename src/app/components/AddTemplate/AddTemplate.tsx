@@ -130,40 +130,40 @@ const MakeTemplate = async () => {
 
   return (
     <div className='AddTemplateWrapper'><div className='AddTemplate'>
-        <input placeholder='name' required value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name:e.target.value})}}></input>
-        <select  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});
+        <input className='AddTemplateinput' placeholder='name' required value={formdata.name} onChange={(e)=>{setFormdata({...formdata,name:e.target.value})}}></input>
+        <select className='AddTemplateselect'  value={formdata.organisationID} onChange={(e)=>{setFormdata({...formdata,organisationID:e.target.value});
                                                               CatagoryValue.Value = e.target.value;
                                                                getCategory() }}>
-          <option value="" disabled hidden>
+          <option className='AddTemplateoption' value="" disabled hidden>
                   Select Orginization
                 </option>
           {orgs.map((org) => (
-          <option key={org.id} value={org.OrgID}>
+          <option className='AddTemplateoption' key={org.id} value={org.OrgID}>
             {org.name}
           </option>
         ))}
         </select>
-        <select value={formdata.category} onChange={(e)=>{
+        <select className='AddTemplateselect' value={formdata.category} onChange={(e)=>{
                                                           if(e.target.value === "create"){ setMakenew(true)}
                                                           else{ setFormdata({...formdata,category:e.target.value})}}}>
-          <option value="" disabled hidden>
+          <option className='AddTemplateoption' value="" disabled hidden>
                   Select Catagory
           </option>
-          <option value="create">create</option>
+          <option className='AddTemplateoption' value="create">create</option>
           {categories.map((category) => (
-          <option key={category.category} value={category.category}>
+          <option className='AddTemplateoption' key={category.category} value={category.category}>
             {category.category}
           </option>
         ))}
         </select>
-        {namenew && <input type='text' placeholder='create new category' onChange={(e)=>{setFormdata({...formdata,category:e.target.value})}}></input>}
-        <textarea required placeholder='intro'  value={formdata.intro} onChange={(e)=>{setFormdata({...formdata,intro:e.target.value})}}>intro</textarea>
-        <textarea required placeholder='Introduction'  value={formdata.Introduction} onChange={(e)=>{setFormdata({...formdata,Introduction:e.target.value})}}>Introduction</textarea>
-        <textarea required placeholder='Offer' value={formdata.Offer} onChange={(e)=>{setFormdata({...formdata,Offer:e.target.value})}}>Offer</textarea>
-        <textarea required placeholder='Porfolio' value={formdata.Porfolio} onChange={(e)=>{setFormdata({...formdata,Porfolio:e.target.value})}}>Porfolio</textarea>
-        <textarea required placeholder='Outro' value={formdata.Outro} onChange={(e)=>{setFormdata({...formdata,Outro:e.target.value})}}>Outro</textarea>
-        <textarea required placeholder='Links' value={formdata.Links} onChange={(e)=>{setFormdata({...formdata,Links:e.target.value})}}>Links</textarea>
-        <button onClick={()=>{MakeTemplate()}}>make Template</button>
+        {namenew && <input className='AddTemplateinput' type='text' placeholder='create new category' onChange={(e)=>{setFormdata({...formdata,category:e.target.value})}}></input>}
+        <textarea className='AddTemplatetextarea' required placeholder='intro'  value={formdata.intro} onChange={(e)=>{setFormdata({...formdata,intro:e.target.value})}}>intro</textarea>
+        <textarea className='AddTemplatetextarea' required placeholder='Introduction'  value={formdata.Introduction} onChange={(e)=>{setFormdata({...formdata,Introduction:e.target.value})}}>Introduction</textarea>
+        <textarea className='AddTemplatetextarea' required placeholder='Offer' value={formdata.Offer} onChange={(e)=>{setFormdata({...formdata,Offer:e.target.value})}}>Offer</textarea>
+        <textarea className='AddTemplatetextarea' required placeholder='Porfolio' value={formdata.Porfolio} onChange={(e)=>{setFormdata({...formdata,Porfolio:e.target.value})}}>Porfolio</textarea>
+        <textarea className='AddTemplatetextarea' required placeholder='Outro' value={formdata.Outro} onChange={(e)=>{setFormdata({...formdata,Outro:e.target.value})}}>Outro</textarea>
+        <textarea className='AddTemplatetextarea' required placeholder='Links' value={formdata.Links} onChange={(e)=>{setFormdata({...formdata,Links:e.target.value})}}>Links</textarea>
+        <button className='AddTemplatebutton' onClick={()=>{MakeTemplate()}}>make Template</button>
     </div></div>
   )
 }

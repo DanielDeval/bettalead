@@ -57,7 +57,7 @@ if(value === "ManageTemp"){
 
   return (
     <div>
-        <nav className='flex gap-10'>
+        <nav className='flex gap-10 overflow-x-scroll '>
           <img src="/betaleadlogo3.png" alt="logo" width={100}/>
             <ul className='flex gap-10 '>
               <li><select   value={createV} className='Navbarselect' 

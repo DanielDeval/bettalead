@@ -83,7 +83,7 @@ overflow-x: hidden;
     box-shadow: 0 0 20px #8b5cf6;
 }
 
-input{
+.AddTemplateinput{
     width: 100%;
 
     padding: 14px 18px;
@@ -112,7 +112,7 @@ input{
         transform 0.25s ease;
 }
 
-input:focus{
+.AddTemplateinput:focus{
     border-color: #8b5cf6;
 
     box-shadow:
@@ -124,7 +124,7 @@ input:focus{
     transform: translateY(-1px);
 }
 
-textarea{
+.AddTemplatetextarea{
     width: 100%;
 
     min-height: 140px;
@@ -159,7 +159,7 @@ textarea{
         transform 0.25s ease;
 }
 
-textarea:focus{
+.AddTemplatetextarea:focus{
     border-color: #8b5cf6;
 
     box-shadow:
@@ -171,7 +171,7 @@ textarea:focus{
     transform: translateY(-1px);
 }
 
-select{
+.AddTemplateselect{
     width: 100%;
 
     padding: 14px 18px;
@@ -204,7 +204,7 @@ select{
     appearance: none;
 }
 
-select:focus{
+.AddTemplateselect:focus{
     border-color: #8b5cf6;
 
     box-shadow:
@@ -216,7 +216,7 @@ select:focus{
     transform: translateY(-1px);
 }
 
-option{
+.AddTemplateoption{
     background: rgba(18,18,24,0.98);
     color: #e4e4e7;
 
@@ -232,7 +232,7 @@ option{
 }
 
 
-button{
+.AddTemplatebutton{
     width: 100%;
 
     padding: 14px 18px;
@@ -269,7 +269,7 @@ button{
         filter 0.25s ease;
 }
 
-button:hover{
+.AddTemplatebutton:hover{
     transform: translateY(-2px);
 
     filter: brightness(1.08);
@@ -280,10 +280,604 @@ button:hover{
         0 10px 25px rgba(0,0,0,0.55);
 }
 
-button:active{
+.AddTemplatebutton:active{
     transform: translateY(1px);
 
     box-shadow:
         0 0 10px rgba(139, 92, 246, 0.2),
         0 4px 12px rgba(0,0,0,0.45);
 }
+
+
+/*///////////////////////////////////////////////////500px////////////////////////////////////////////////////////////////*/
+
+@media (max-width: 500px){
+    
+.AddTemplateWrapper{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AddTemplate{
+    position: relative;
+
+    width: 80vw;
+    height: 80vh;
+    padding: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(20,20,25,0.98),
+        rgba(8,8,12,0.98)
+    );
+
+    border: 1px solid #6d3bbd;
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 12px rgba(139, 92, 246, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.12),
+        0 10px 40px rgba(0,0,0,0.7);
+
+    color: #d4d4d8;
+
+    backdrop-filter: blur(8px);
+
+    
+  overflow-y: auto;
+overflow-x: hidden;
+}
+
+/* subtle paper texture */
+.AddTemplate::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.015),
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 40px   /* ← change this to adjust spacing */
+        );
+
+    pointer-events: none;
+}
+
+/* glowing top line */
+.AddTemplate::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        #ab4a7d 33%,
+        #8b5cf6 66%,
+        transparent 100%
+    );
+
+    box-shadow: 0 0 20px #8b5cf6;
+}
+
+.AddTemplateinput{
+    width: 300px;
+
+    padding: 14px 18px;
+    margin-top: 12px;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.AddTemplateinput:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplatetextarea{
+    width: 300px;
+
+    min-height: 140px;
+
+    padding: 18px;
+
+    margin-top: 16px;
+
+    resize: vertical;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.AddTemplatetextarea:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplateselect{
+    width: 300px;
+
+    padding: 14px 18px;
+    margin-top: 12px;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+
+    appearance: none;
+}
+
+.AddTemplateselect:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplateoption{
+    background: rgba(18,18,24,0.98);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12);
+
+    padding: 12px;
+
+    font-size: 15px;
+}
+
+
+.AddTemplatebutton{
+    width: 300px;
+
+    padding: 14px 18px;
+    margin-top: 18px;
+
+    background: linear-gradient(
+        to right,
+        rgba(139,92,246,0.95),
+        rgba(171,74,125,0.95)
+    );
+
+    color: #f5f5f5;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+
+    outline: none;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 0 12px rgba(139, 92, 246, 0.25),
+        0 0 30px rgba(171, 74, 125, 0.18),
+        0 6px 18px rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.AddTemplatebutton:hover{
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 0 18px rgba(139, 92, 246, 0.4),
+        0 0 40px rgba(171, 74, 125, 0.25),
+        0 10px 25px rgba(0,0,0,0.55);
+}
+
+.AddTemplatebutton:active{
+    transform: translateY(1px);
+
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.2),
+        0 4px 12px rgba(0,0,0,0.45);
+}
+}
+
+/*///////////////////////////////////////////////////500px////////////////////////////////////////////////////////////////*/
+
+
+/*///////////////////////////////////////////////////400px////////////////////////////////////////////////////////////////*/
+
+@media (max-width: 400px){
+    
+.AddTemplateWrapper{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AddTemplate{
+    position: relative;
+
+    width: 80vw;
+    height: 80vh;
+    padding: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(20,20,25,0.98),
+        rgba(8,8,12,0.98)
+    );
+
+    border: 1px solid #6d3bbd;
+    border-radius: 6px;
+
+    box-shadow:
+        0 0 12px rgba(139, 92, 246, 0.35),
+        0 0 35px rgba(139, 92, 246, 0.12),
+        0 10px 40px rgba(0,0,0,0.7);
+
+    color: #d4d4d8;
+
+    backdrop-filter: blur(8px);
+
+    
+  overflow-y: auto;
+overflow-x: hidden;
+}
+
+/* subtle paper texture */
+.AddTemplate::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.015),
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px,
+            transparent 40px   /* ← change this to adjust spacing */
+        );
+
+    pointer-events: none;
+}
+
+/* glowing top line */
+.AddTemplate::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        #ab4a7d 33%,
+        #8b5cf6 66%,
+        transparent 100%
+    );
+
+    box-shadow: 0 0 20px #8b5cf6;
+}
+
+.AddTemplateinput{
+    width: 220px;
+
+    padding: 14px 18px;
+    margin-top: 12px;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.AddTemplateinput:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplatetextarea{
+    width: 220px;
+
+    min-height: 140px;
+
+    padding: 18px;
+
+    margin-top: 16px;
+
+    resize: vertical;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.AddTemplatetextarea:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplateselect{
+    width: 220px;
+
+    padding: 14px 18px;
+    margin-top: 12px;
+
+    background: rgba(18,18,24,0.92);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12),
+        0 4px 18px rgba(0,0,0,0.45);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+
+    appearance: none;
+}
+
+.AddTemplateselect:focus{
+    border-color: #8b5cf6;
+
+    box-shadow:
+        inset 0 0 14px rgba(139, 92, 246, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.5),
+        0 0 22px rgba(139, 92, 246, 0.35),
+        0 0 50px rgba(139, 92, 246, 0.12);
+
+    transform: translateY(-1px);
+}
+
+.AddTemplateoption{
+    background: rgba(18,18,24,0.98);
+    color: #e4e4e7;
+
+    border: 1px solid rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        inset 0 0 10px rgba(139, 92, 246, 0.06),
+        0 0 12px rgba(139, 92, 246, 0.12);
+
+    padding: 12px;
+
+    font-size: 15px;
+}
+
+
+.AddTemplatebutton{
+    width: 220px;
+
+    padding: 14px 18px;
+    margin-top: 18px;
+
+    background: linear-gradient(
+        to right,
+        rgba(139,92,246,0.95),
+        rgba(171,74,125,0.95)
+    );
+
+    color: #f5f5f5;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+
+    outline: none;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 0 12px rgba(139, 92, 246, 0.25),
+        0 0 30px rgba(171, 74, 125, 0.18),
+        0 6px 18px rgba(0,0,0,0.45);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.AddTemplatebutton:hover{
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 0 18px rgba(139, 92, 246, 0.4),
+        0 0 40px rgba(171, 74, 125, 0.25),
+        0 10px 25px rgba(0,0,0,0.55);
+}
+
+.AddTemplatebutton:active{
+    transform: translateY(1px);
+
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.2),
+        0 4px 12px rgba(0,0,0,0.45);
+}
+}
+
+/*///////////////////////////////////////////////////400px////////////////////////////////////////////////////////////////*/

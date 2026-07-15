@@ -378,14 +378,14 @@ const setAsSaved = async () => {
   return (
     <div  className='EmailmakerWrapper'><div className='Emailmaker'>
 {/*////////////////////////////////////////////////////////////////select template////////////////////////////////////////////////////////*/}
-      <select  value={selectedtemplate.id} onChange={(e)=>{selectthetemplate(e.target.value);
+      <select className='Emailmakerselect'  value={selectedtemplate.id} onChange={(e)=>{selectthetemplate(e.target.value);
                                                           getparts(e.target.value)
       }}>
-          <option value="" disabled hidden>
+          <option className='Emailmakeroption' value="" disabled hidden>
                   Select Template
                 </option>
           {templates.map((template) => (
-          <option key={template.id} value={template.id}>
+          <option className='Emailmakeroption' key={template.id} value={template.id}>
             {template.category}
           </option>
         ))}
@@ -393,79 +393,79 @@ const setAsSaved = async () => {
 {/*////////////////////////////////////////////////////////////////select template////////////////////////////////////////////////////////*/}
 
 {/*////////////////////////////////////////////////////////////////into template////////////////////////////////////////////////////////*/}
-<input value={email.intro} onChange={(e) => {setEmail(prev => ({...prev,intro:e.target.value}))}}></input>
-<select defaultValue={""} onChange={(e)=>{handleintroparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<input className='Emailmakerinput' value={email.intro} onChange={(e) => {setEmail(prev => ({...prev,intro:e.target.value}))}}></input>
+<select className='Emailmakerselect' defaultValue={""} onChange={(e)=>{handleintroparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {introparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {introparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createintro &&<input placeholder='name' value={createintroname} onChange={(e)=>{setCreateintroname(e.target.value)}}></input>}
-{createintro && <button onClick={()=>{handlePartsaveintro()}}>save part</button>}
+{createintro &&<input className='Emailmakerinput' placeholder='name' value={createintroname} onChange={(e)=>{setCreateintroname(e.target.value)}}></input>}
+{createintro && <button className='Emailmakerbutton' onClick={()=>{handlePartsaveintro()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////into template////////////////////////////////////////////////////////*/}
 {/*////////////////////////////////////////////////////////////////Introduction template////////////////////////////////////////////////*/}
-<textarea value={email.Introduction}  onChange={(e) => {setEmail(prev => ({...prev,Introduction:e.target.value}))}}></textarea>
-<select defaultValue={""}  onChange={(e)=>{handleIntroductionparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<textarea className='Emailmakertextarea' value={email.Introduction}  onChange={(e) => {setEmail(prev => ({...prev,Introduction:e.target.value}))}}></textarea>
+<select  className='Emailmakerselect' defaultValue={""}  onChange={(e)=>{handleIntroductionparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {Introductionparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {Introductionparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createintroduction &&<input placeholder='name' value={createintroductionname}  onChange={(e)=>{setCreateintroductionname(e.target.value)}}></input>}
-{createintroduction && <button  onClick={()=>{handlePartsaveIntroduction()}}>save part</button>}
+{createintroduction &&<input className='Emailmakerinput' placeholder='name' value={createintroductionname}  onChange={(e)=>{setCreateintroductionname(e.target.value)}}></input>}
+{createintroduction && <button className='Emailmakerbutton'  onClick={()=>{handlePartsaveIntroduction()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Introduction template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Offer template////////////////////////////////////////////////*/}
-<textarea value={email.Offer}  onChange={(e) => {setEmail(prev => ({...prev,Offer:e.target.value}))}}></textarea>
-<select defaultValue={""}  onChange={(e)=>{handleOfferparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<textarea className='Emailmakertextarea' value={email.Offer}  onChange={(e) => {setEmail(prev => ({...prev,Offer:e.target.value}))}}></textarea>
+<select className='Emailmakerselect' defaultValue={""}  onChange={(e)=>{handleOfferparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {Offerparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {Offerparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createoffer &&<input placeholder='name' value={createoffername} onChange={(e)=>{setCreateoffername(e.target.value)}}></input>}
-{createoffer && <button  onClick={()=>{handlePartsaveOffer()}}>save part</button>}
+{createoffer &&<input className='Emailmakerinput' placeholder='name' value={createoffername} onChange={(e)=>{setCreateoffername(e.target.value)}}></input>}
+{createoffer && <button className='Emailmakerbutton'  onClick={()=>{handlePartsaveOffer()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Offer template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Porfolio template////////////////////////////////////////////////*/}
-<textarea value={email.Porfolio}  onChange={(e) => {setEmail(prev => ({...prev,Porfolio:e.target.value}))}}></textarea>
-<select defaultValue={""}  onChange={(e)=>{handlePorfolioparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<textarea className='Emailmakertextarea' value={email.Porfolio}  onChange={(e) => {setEmail(prev => ({...prev,Porfolio:e.target.value}))}}></textarea>
+<select className='Emailmakerselect' defaultValue={""}  onChange={(e)=>{handlePorfolioparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {Porfolioparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {Porfolioparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createporfolio &&<input placeholder='name' value={createporfolioname} onChange={(e)=>{setCreateporfolioname(e.target.value)}}></input>}
-{createporfolio && <button  onClick={()=>{handlePartsavePorfolio()}}>save part</button>}
+{createporfolio &&<input className='Emailmakerinput' placeholder='name' value={createporfolioname} onChange={(e)=>{setCreateporfolioname(e.target.value)}}></input>}
+{createporfolio && <button className='Emailmakerbutton'  onClick={()=>{handlePartsavePorfolio()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Porfolio template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Outro template////////////////////////////////////////////////*/}
-<textarea value={email.Outro}  onChange={(e) => {setEmail(prev => ({...prev,Outro:e.target.value}))}}></textarea>
-<select defaultValue={""}  onChange={(e)=>{handleOutroparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<textarea className='Emailmakertextarea' value={email.Outro}  onChange={(e) => {setEmail(prev => ({...prev,Outro:e.target.value}))}}></textarea>
+<select className='Emailmakerselect' defaultValue={""}  onChange={(e)=>{handleOutroparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {Outroparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {Outroparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createoutro &&<input placeholder='name' value={createoutroname} onChange={(e)=>{setCreateoutroname(e.target.value)}}></input>}
-{createoutro && <button  onClick={()=>{handlePartsaveOutro()}}>save part</button>}
+{createoutro &&<input className='Emailmakerinput' placeholder='name' value={createoutroname} onChange={(e)=>{setCreateoutroname(e.target.value)}}></input>}
+{createoutro && <button className='Emailmakerbutton' onClick={()=>{handlePartsaveOutro()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Outro template////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
-<textarea value={email.Links}  onChange={(e) => {setEmail(prev => ({...prev,Links:e.target.value}))}}></textarea>
-<select defaultValue={""}  onChange={(e)=>{handleLinksparts(e.target.value)}}>
-  <option value="" disabled hidden>
+<textarea className='Emailmakertextarea' value={email.Links}  onChange={(e) => {setEmail(prev => ({...prev,Links:e.target.value}))}}></textarea>
+<select className='Emailmakerselect' defaultValue={""}  onChange={(e)=>{handleLinksparts(e.target.value)}}>
+  <option className='Emailmakeroption' value="" disabled hidden>
                   Default
   </option>
-  <option value="create">Create</option>
-  {Linksparts.map((part)=><option key={part.id} value={part.text}>{part.name}</option>)} 
+  <option className='Emailmakeroption' value="create">Create</option>
+  {Linksparts.map((part)=><option className='Emailmakeroption' key={part.id} value={part.text}>{part.name}</option>)} 
 </select>
-{createlinks &&<input placeholder='name' value={createlinksname} onChange={(e)=>{setCreatelinksname(e.target.value)}}></input>}
-{createlinks && <button  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
+{createlinks &&<input className='Emailmakerinput' placeholder='name' value={createlinksname} onChange={(e)=>{setCreatelinksname(e.target.value)}}></input>}
+{createlinks && <button className='Emailmakerbutton'  onClick={()=>{handlePartsaveLinks()}}>save part</button>}
 {/*////////////////////////////////////////////////////////////////Links template////////////////////////////////////////////////*/}
-<button onClick={() => openGmailCompose()}>Compose Email</button>
-<button onClick={() => setAsSaved()}>save as contacted</button>
+<button className='Emailmakerbutton' onClick={() => openGmailCompose()}>Compose Email</button>
+<button className='Emailmakerbutton' onClick={() => setAsSaved()}>save as contacted</button>
 
     </div></div>
   )
