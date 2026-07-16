@@ -28,10 +28,31 @@ const Contactlist = ({handleemailmode,orgs,localstate,getTheContacts,contacts,se
 
 const [localeststate, setLocaleststate] = useState("")
 
+const [locations, setLlocations] = useState("")
+
+
+/*///////////////////////////////////////////////////////////////////sort Contacts/////////////////////////////////////////////////////////////*/
+
+const contactLocations = [...new Set(contacts.map(contact => contact.location))]
+
+const [sortedcontacts, setSortedcontacts] = useState<Contacts[]>([])
+
+
+const sortcontacts = (input:string) => {
+if(input === ""){
+  setSortedcontacts(contacts)
+}
+else{
+  setSortedcontacts(contacts.filter(contact => contact.location === input));
+}
+}
+
+/*///////////////////////////////////////////////////////////////////sort Contacts/////////////////////////////////////////////////////////////*/
+
 
   return (
     <div className='ContactlistWrapper'><div className='Contactlist'>
-        <select className='Contactlistselect'  value={localstate.orgID} onChange={(e)=>{getTheContacts(e.target.value);setLocaleststate(e.target.value);setorgID(e.target.value)}}>
+        <select className='Contactlistselect'  value={localstate.orgID} onChange={(e)=>{sortcontacts("");getTheContacts(e.target.value);setLocaleststate(e.target.value);setorgID(e.target.value)}}>
           <option className='Contactlistoption' value="" disabled hidden>
                   Select Orginization
                 </option>
@@ -41,7 +62,18 @@ const [localeststate, setLocaleststate] = useState("")
           </option>
         ))}
         </select>
-        {contacts.map((contact) => (
+        <select className='Contactlistselect'  value={locations} onChange={(e)=>{sortcontacts(e.target.value);setLocaleststate(e.target.value);}}>
+          <option className='Contactlistoption' value="" disabled hidden>
+                  Sort by locations
+                </option>
+          {contactLocations.map((contactLocation) => (
+          <option className='Contactlistoption' key={contactLocation} value={contactLocation}>
+            {contactLocation}
+          </option>
+        ))}
+          
+          </select>
+        {sortedcontacts.map((contact) => (
             <Contactcard key={contact.id}
             contact={contact}
             setorgID={setorgID}
